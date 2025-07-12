@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 192600194880748067}
   - component: {fileID: 2237918859216792318}
   - component: {fileID: 1119590108476702261}
+  - component: {fileID: 7347705675031102307}
+  - component: {fileID: 8079197417322095650}
   - component: {fileID: 283000033444938482}
-  - component: {fileID: 1779590866831516829}
-  - component: {fileID: 3745837899918138259}
+  - component: {fileID: -4832878528006025992}
   m_Layer: 30
   m_Name: GreenOval
   m_TagString: Untagged
@@ -109,6 +110,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7347705675031102307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308919726504299372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce75ed5e2fd56a4c848778601373596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSpeed: 50
+  mDamage: 10
+  Hero: 1
+  Enemy: 0
+--- !u!114 &8079197417322095650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308919726504299372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdf9b5cdd62a2b459cbc97801c58e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSpeed: 50
+  mDamage: 10
+  Hero: 1
+  Enemy: 0
 --- !u!50 &283000033444938482
 Rigidbody2D:
   serializedVersion: 4
@@ -136,8 +169,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1779590866831516829
-CapsuleCollider2D:
+--- !u!58 &-4832878528006025992
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,22 +201,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016222924, y: -0.028701544}
-  m_Size: {x: 0.23873663, y: 0.2137806}
-  m_Direction: 1
---- !u!114 &3745837899918138259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308919726504299372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fe6024937e1414b98039f6bef5db3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSpeed: 50
-  mDamage: 10
-  Hero: 1
-  Enemy: 0
+  m_Offset: {x: 0, y: -0.03}
+  serializedVersion: 2
+  m_Radius: 0.1

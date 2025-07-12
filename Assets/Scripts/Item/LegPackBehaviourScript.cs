@@ -14,6 +14,7 @@ public class LegPackBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void Delete()

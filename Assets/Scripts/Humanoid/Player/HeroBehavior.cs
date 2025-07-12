@@ -3,22 +3,21 @@ using UnityEngine;
 
 public class HeroBehavior : HumanoidBehavior
 {
-    private float mDashSpeed = 2f;
     public bool canDash = false;
     public bool canMoveSlow = false;
     public bool canHide = false;
 
-    public float slowMotionFactor = 0.5f;      // Ê±¼äËõ·Å±ÈÀý
-    private float slowMotionDuration = 5f;      // ¼¼ÄÜ³ÖÐøÊ±¼ä£¨ÕæÊµÊ±¼ä£©
-    private float slowMotionCooldown = 10f;     // ¼¼ÄÜÀäÈ´Ê±¼ä£¨ÕæÊµÊ±¼ä£©
-    private float mOriginalFixedDeltaTime;     // ´æ´¢Ô­Ê¼¹Ì¶¨Ê±¼ä²½³¤
-    private bool mIsTimeSlowing = false;       // µ±Ç°ÊÇ·ñ´¦ÓÚ¼¼ÄÜ×´Ì¬
-    private bool mIsOnCooldown = false;        // ¼¼ÄÜÊÇ·ñ´¦ÓÚÀäÈ´ÖÐ
+    public float slowMotionFactor = 0.5f;      // Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
+    private float slowMotionDuration = 5f;      // ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½Ê±ï¿½ä£¨ï¿½ï¿½ÊµÊ±ï¿½ä£©
+    private float slowMotionCooldown = 10f;     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´Ê±ï¿½ä£¨ï¿½ï¿½ÊµÊ±ï¿½ä£©
+    private float mOriginalFixedDeltaTime;     // ï¿½æ´¢Ô­Ê¼ï¿½Ì¶ï¿½Ê±ï¿½ä²½ï¿½ï¿½
+    private bool mIsTimeSlowing = false;       // ï¿½ï¿½Ç°ï¿½Ç·ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½×´Ì¬
+    private bool mIsOnCooldown = false;        // ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½
     public bool IsTimeSlowingActive => mIsTimeSlowing;
     public bool IsOnCooldown => mIsOnCooldown;
 
-    private float hidingDuration = 10f;      // ¼¼ÄÜ³ÖÐøÊ±¼ä£¨ÕæÊµÊ±¼ä£©
-    private float hidingCooldown = 60f;      // ¼¼ÄÜÀäÈ´Ê±¼ä£¨ÕæÊµÊ±¼ä£©
+    private float hidingDuration = 10f;      // ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½Ê±ï¿½ä£¨ï¿½ï¿½ÊµÊ±ï¿½ä£©
+    private float hidingCooldown = 60f;      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´Ê±ï¿½ä£¨ï¿½ï¿½ÊµÊ±ï¿½ä£©
 
     private bool mIsHiding = false;
     private bool mIsOnHidingCoolDown = false;
@@ -39,7 +38,7 @@ public class HeroBehavior : HumanoidBehavior
         mHideTimer = Time.unscaledTime;
     }
 
-    // ¼¤»îÊ±¼ä¼õ»º¼¼ÄÜ
+    // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void ActivateTimeSlow()
     {
         if (!mIsTimeSlowing && canMoveSlow && !mIsOnCooldown)
@@ -59,19 +58,19 @@ public class HeroBehavior : HumanoidBehavior
     private IEnumerator HideCoroutine()
     {
         mIsHiding = true;
-        // ÉèÖÃÍ¸Ã÷¶ÈÎª0.5
+        // ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½Îª0.5
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Color originalColor = renderer.color;
         renderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
 
-        // ³ÖÐøhidingDurationÃë
+        // ï¿½ï¿½ï¿½ï¿½hidingDurationï¿½ï¿½
         yield return new WaitForSecondsRealtime(hidingDuration);
 
-        // »Ö¸´Í¸Ã÷¶È
+        // ï¿½Ö¸ï¿½Í¸ï¿½ï¿½ï¿½ï¿½
         renderer.color = originalColor;
         mIsHiding = false;
 
-        // ½øÈëÀäÈ´
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´
         StartCoroutine(HideCooldownCoroutine());
     }
 
@@ -140,7 +139,7 @@ public class HeroBehavior : HumanoidBehavior
         mAnimator.SetFloat("MoveSpeed", 1f);
     }
 
-    // ÐÞ¸ÄÉä»÷·½·¨ - Ê¹ÓÃ²»ÊÜËõ·ÅÓ°ÏìµÄÊ±¼ä
+    // ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - Ê¹ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     public override void Shoot()
     {
         mAnimator.SetTrigger("Shoot");
@@ -151,12 +150,12 @@ public class HeroBehavior : HumanoidBehavior
         }
     }
 
-    // ÐÞ¸Ä³å´Ì·½·¨
+    // ï¿½Þ¸Ä³ï¿½Ì·ï¿½ï¿½ï¿½
     public override void Dash()
     {
         if (canDash)
         {
-            // ¼ÆËãÊµ¼ÊµÄ³å´ÌÁ¦£¨¿¼ÂÇÊ±¼äËõ·Å£©
+            // ï¿½ï¿½ï¿½ï¿½Êµï¿½ÊµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½
             Vector3 effectiveForce = mIsTimeSlowing ?
                 20 * mSpeed * mDirection / slowMotionFactor :
                 20 * mSpeed * mDirection;

@@ -180,7 +180,7 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "14.0.10",
+      "version": "14.0.11",
       "depth": 0,
       "source": "builtin",
       "dependencies": {

@@ -3,11 +3,9 @@ using UnityEngine.UI;
 
 public class HealthBarManager : MonoBehaviour
 {
-    // UI×é¼şºÍ¾«ÁéÒıÓÃ
     public Image healthBarImage;
-    public Sprite[] healthBarSprites; // ÔÚInspectorÖĞ°´Ë³ĞòÍÏÈë27ÕÅÍ¼Æ¬
+    public Sprite[] healthBarSprites;
 
-    // ÑªÁ¿ÏµÍ³°ó¶¨
     private HeroStatus heroStatus;
     private int maxHealth;
     private int lastHealthIndex = -1;
@@ -19,7 +17,6 @@ public class HealthBarManager : MonoBehaviour
 
     void InitializeHealthSystem()
     {
-        // ¶¯Ì¬²éÕÒHeroStatus×é¼ş£¨ÊÊÓ¦prefabÊµÀı»¯£©
         GameObject hero = GameObject.FindGameObjectWithTag("Player");
         if (hero != null) heroStatus = hero.GetComponent<HeroStatus>();
 
@@ -29,13 +26,12 @@ public class HealthBarManager : MonoBehaviour
             return;
         }
 
-        maxHealth = heroStatus.mMaxHealthPoint; // ×î´óÑªÁ¿
+        maxHealth = heroStatus.mMaxHealthPoint; // ï¿½ï¿½ï¿½Ñªï¿½ï¿½
         UpdateHealthBar();
     }
 
     void Update()
     {
-        // Ã¿Ö¡¼ì²éÑªÁ¿±ä»¯
         if (heroStatus != null)
         {
             UpdateHealthBar();

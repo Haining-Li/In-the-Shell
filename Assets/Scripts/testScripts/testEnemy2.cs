@@ -8,7 +8,6 @@ public class EnemyAnimationController : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        // 确保所有参数初始状态正确
         ResetAllParameters();
     }
 
@@ -20,7 +19,6 @@ public class EnemyAnimationController : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        // 按住1键跑步，松开停止
         if (Input.GetKey(KeyCode.Alpha1))
         {
             animator.SetFloat("Speed", 1f);
@@ -33,19 +31,16 @@ public class EnemyAnimationController : MonoBehaviour
 
     private void HandleActionInput()
     {
-        // 2键触发死亡（只能触发一次）
         if (Input.GetKeyDown(KeyCode.Alpha2) && !animator.GetBool("IsDead"))
         {
             TriggerDeath();
         }
 
-        // 3键切换激活状态
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ToggleActivation();
         }
 
-        // 4键触发射击（需要已激活状态）
         if (Input.GetKeyDown(KeyCode.Alpha4) && isActivated)
         {
             TriggerShooting();
@@ -54,7 +49,6 @@ public class EnemyAnimationController : MonoBehaviour
 
     private void TriggerDeath()
     {
-        // 死亡时禁用其他所有状态
         ResetAllParameters();
         animator.SetBool("IsDead", true);
         Debug.Log("Enemy died");
@@ -82,6 +76,5 @@ public class EnemyAnimationController : MonoBehaviour
         animator.SetFloat("Speed", 0f);
         animator.SetBool("IsActivated", false);
         animator.SetBool("IsDead", false);
-        // 注意：Triggers需要在Animator中自动重置
     }
 }

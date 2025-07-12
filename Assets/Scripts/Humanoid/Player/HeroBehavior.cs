@@ -9,17 +9,11 @@ using UnityEngine.PlayerLoop;
 public class HeroBehavior : HumanoidBehavior
 {
     
-    private float mDashSpeed = 2f;
     public bool canDash = false;
     void Start()
     {
         Init();
         mFirePoint = new Vector3(0, 8, 0);
-    }
-    void Update()
-    {
-        
-        
     }
 
     public override void Dash()

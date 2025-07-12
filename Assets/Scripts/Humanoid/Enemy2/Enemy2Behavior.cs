@@ -12,10 +12,6 @@ public class Enemy2Behavior : HumanoidBehavior
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public override void Sleep()
     {

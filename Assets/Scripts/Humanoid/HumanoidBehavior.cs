@@ -11,7 +11,7 @@ public class HumanoidBehavior : MonoBehaviour
 {
     protected Rigidbody2D mRigidBody = null;
     protected Animator mAnimator = null;
-    public Vector3  mFirePoint;
+    public Vector3 mFirePoint;
 
     // used by Move, include speed & direction
     public float mSpeed;
@@ -25,7 +25,7 @@ public class HumanoidBehavior : MonoBehaviour
     protected Vector3 mTowards;
     public Vector3 mFacingDirection
     {
-        set { mTowards = value.normalized; }
+        set { mTowards = (value - mFirePoint).normalized; }
     }
 
     // used by Shoot
@@ -38,9 +38,12 @@ public class HumanoidBehavior : MonoBehaviour
         Init();
     }
 
-    void Update()
-    {
 
+
+    protected Vector3 mForce = Vector3.zero;
+    protected void FixedUpdate()
+    {
+        mRigidBody.AddForce(mForce, ForceMode2D.Force);
     }
 
     virtual protected void Init()
@@ -59,13 +62,12 @@ public class HumanoidBehavior : MonoBehaviour
 
     virtual public void Idle()
     {
-
+        mForce = Vector3.zero;
     }
 
     virtual public void Move()
     {
-        float force = mSpeed * mRigidBody.drag;
-        mRigidBody.AddForce(force * mDirection);
+        mForce = mSpeed * mRigidBody.drag * mDirection;
     }
 
     virtual public void Shoot()
@@ -79,9 +81,7 @@ public class HumanoidBehavior : MonoBehaviour
 
     virtual public void Dash()
     {
-        Debug.Log("Base Dash!");
-        Debug.Log(mSpeed * mDirection);
-        mRigidBody.AddForce(20 * mSpeed * mDirection, ForceMode2D.Impulse);
+        mRigidBody.AddForce(mSpeed * mDirection, ForceMode2D.Impulse);
     }
 
     virtual public void Sleep()

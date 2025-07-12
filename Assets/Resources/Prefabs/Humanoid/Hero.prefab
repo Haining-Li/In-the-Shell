@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2360309436929258849}
   - component: {fileID: 7756496463066558815}
   - component: {fileID: 5966636799122798347}
-  m_Layer: 31
+  m_Layer: 27
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxHealthPoint: 100
+  mHP: 100
 --- !u!114 &5966636799122798347
 MonoBehaviour:
   m_ObjectHideFlags: 0

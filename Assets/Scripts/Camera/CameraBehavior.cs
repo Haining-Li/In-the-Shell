@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 public class CameraBehavior : MonoBehaviour
 {
     public GameObject mFocus = null;
-    private float mFollowRate = 0.007f;
+    public float mFollowRate = 0.01f;
     
     void Start()
     {

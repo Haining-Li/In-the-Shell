@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2237918859216792318}
   - component: {fileID: 1119590108476702261}
   - component: {fileID: 7347705675031102307}
-  - component: {fileID: -3828776108768699061}
   - component: {fileID: 283000033444938482}
+  - component: {fileID: -3828776108768699061}
   m_Layer: 30
   m_Name: BlueLaser
   m_TagString: Untagged
@@ -125,6 +125,33 @@ MonoBehaviour:
   mDamage: 10
   Hero: 0
   Enemy: 1
+--- !u!50 &283000033444938482
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308919726504299372}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &-3828776108768699061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,7 +181,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000008940697, y: -0.014804684}
@@ -170,30 +197,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31794566, y: 0.11220808}
   m_EdgeRadius: 0
---- !u!50 &283000033444938482
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308919726504299372}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4

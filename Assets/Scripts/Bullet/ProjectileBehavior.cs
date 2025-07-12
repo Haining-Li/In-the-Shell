@@ -9,6 +9,7 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
     // Status
+    protected Rigidbody2D mRigidbody = null;
     protected Animator mAnimator = null;
     public enum ProjectileStatus
     {
@@ -31,30 +32,34 @@ public class ProjectileBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Move();
-    }
 
     public void Init()
     {
         mAnimator = GetComponent<Animator>();
+        mRigidbody = GetComponent<Rigidbody2D>();
+        mRigidbody.freezeRotation = true;
+        mRigidbody.gravityScale = 0;
+        mRigidbody.drag = 0;
+
+        if (Hero)
+        {
+
+            
+            
+        }
+
     }
 
     // Moving forward at a constant speed
     virtual public void Move()
     {
-        Vector3 pos = transform.localPosition;
-        pos += mSpeed * Time.smoothDeltaTime * transform.right;
-        transform.localPosition = pos;
-        
-        
+        mRigidbody.velocity = mSpeed * transform.right;
     }
 
     // Hit something, the wall or humanoid
     virtual public void Hit()
     {
-
+        mRigidbody.velocity = Vector3.zero;
     }
 
     // Destroyed it self

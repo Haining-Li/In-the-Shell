@@ -8,16 +8,24 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject levelSelectionPanel;
+    [SerializeField] private GameObject creditPanel;
     
     public void ShowLevelSelection()
     {
         mainMenuPanel.SetActive(false);
         levelSelectionPanel.SetActive(true);
     }
+
+    public void ShowCredit()
+    {
+        mainMenuPanel.SetActive(false);
+        creditPanel.SetActive(true);
+    }
     
     public void BackToMainMenu()
     {
         levelSelectionPanel.SetActive(false);
+        creditPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
     

@@ -41,12 +41,6 @@ public class ProjectileBehavior : MonoBehaviour
         mRigidbody.gravityScale = 0;
         mRigidbody.drag = 0;
 
-        if (Hero)
-        {
-
-            
-            
-        }
 
     }
 

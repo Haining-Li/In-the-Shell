@@ -31,6 +31,7 @@ public class Enemy1AI : HumanoidController
         switch (mStatus)
         {
             case Status.Idle:
+                mBehaviorHandler.Idle();
                 if (mSightHandler.isInSight)
                 {
                     mStatus = Status.Attack;
@@ -67,6 +68,7 @@ public class Enemy1AI : HumanoidController
 
     }
 
+    
     void Alert()
     {
         

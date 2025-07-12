@@ -17,8 +17,8 @@ public class MainMenu : MonoBehaviour
     
     public void BackToMainMenu()
     {
-        levelSelectionPanel.SetActive(false); // 关闭关卡选择
-        mainMenuPanel.SetActive(true);        // 打开主菜单
+        levelSelectionPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
     
     public void LoadLevel(int levelIndex)

@@ -3,11 +3,9 @@ using UnityEngine.UI;
 
 public class HealthBarManager : MonoBehaviour
 {
-    // UI组件和精灵引用
     public Image healthBarImage;
-    public Sprite[] healthBarSprites; // 在Inspector中按顺序拖入27张图片
+    public Sprite[] healthBarSprites;
 
-    // 血量系统绑定
     private HeroStatus heroStatus;
     private int maxHealth = 100;
     private int lastHealthIndex = -1;
@@ -19,7 +17,6 @@ public class HealthBarManager : MonoBehaviour
 
     void InitializeHealthSystem()
     {
-        // 动态查找HeroStatus组件（适应prefab实例化）
         GameObject hero = GameObject.FindGameObjectWithTag("Player");
         if (hero != null) heroStatus = hero.GetComponent<HeroStatus>();
 
@@ -29,13 +26,12 @@ public class HealthBarManager : MonoBehaviour
             return;
         }
 
-        maxHealth = 100; // 最大血量为100
+        maxHealth = 100;
         UpdateHealthBar();
     }
 
     void Update()
     {
-        // 每帧检查血量变化
         if (heroStatus != null)
         {
             UpdateHealthBar();

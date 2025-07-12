@@ -23,7 +23,7 @@ public class PauseManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f; // 暂停游戏时间
+        Time.timeScale = 0f;
         pauseMenuPanel.SetActive(true);
         isPaused = true;
         // 可选：解锁鼠标光标
@@ -33,7 +33,7 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f; // 恢复游戏时间
+        Time.timeScale = 1f;
         pauseMenuPanel.SetActive(false);
         isPaused = false;
         // 可选：锁定鼠标光标（如果是3D游戏）

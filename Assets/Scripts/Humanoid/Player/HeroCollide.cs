@@ -29,12 +29,7 @@ public class HeroCollide : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;
-        if (e.tag == "EnemyBullet")
-        {
-            
-            GetComponent<HumanoidStatus>().GetHurt(10);
-        }
-        else if (e.tag == "LegPack")
+        if (e.tag == "LegPack")
         {
             GetComponent<HeroBehavior>().canDash = true;
             LegPackBehaviourScript Leg = collision.gameObject.GetComponent<LegPackBehaviourScript> ();

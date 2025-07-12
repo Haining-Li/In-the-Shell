@@ -7,17 +7,17 @@ public class HeroBehavior : HumanoidBehavior
     public bool canMoveSlow = false;
     public bool canHide = false;
 
-    public float slowMotionFactor = 0.5f;      // ʱ�����ű���
-    private float slowMotionDuration = 5f;      // ���ܳ���ʱ�䣨��ʵʱ�䣩
-    private float slowMotionCooldown = 10f;     // ������ȴʱ�䣨��ʵʱ�䣩
-    private float mOriginalFixedDeltaTime;     // �洢ԭʼ�̶�ʱ�䲽��
-    private bool mIsTimeSlowing = false;       // ��ǰ�Ƿ��ڼ���״̬
-    private bool mIsOnCooldown = false;        // �����Ƿ�����ȴ��
+    public float slowMotionFactor = 0.5f;      
+    private float slowMotionDuration = 5f;      
+    private float slowMotionCooldown = 10f;     
+    private float mOriginalFixedDeltaTime;     
+    private bool mIsTimeSlowing = false;       
+    private bool mIsOnCooldown = false;        
     public bool IsTimeSlowingActive => mIsTimeSlowing;
     public bool IsOnCooldown => mIsOnCooldown;
 
-    private float hidingDuration = 10f;      // ���ܳ���ʱ�䣨��ʵʱ�䣩
-    private float hidingCooldown = 60f;      // ������ȴʱ�䣨��ʵʱ�䣩
+    private float hidingDuration = 10f;      
+    private float hidingCooldown = 60f;      
 
     private bool mIsHiding = false;
     private bool mIsOnHidingCoolDown = false;
@@ -37,8 +37,6 @@ public class HeroBehavior : HumanoidBehavior
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;
     }
-
-    // ����ʱ���������
     public void ActivateTimeSlow()
     {
         if (!mIsTimeSlowing && canMoveSlow && !mIsOnCooldown)

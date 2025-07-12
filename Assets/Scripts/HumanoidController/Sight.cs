@@ -36,7 +36,6 @@ public class Sight : MonoBehaviour
             mAlert = true;
             mPos = e.transform.localPosition;
         }
-
     }
 
     void OnTriggerStay2D(Collider2D other)

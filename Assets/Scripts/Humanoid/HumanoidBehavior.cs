@@ -54,10 +54,6 @@ public class HumanoidBehavior : MonoBehaviour
 
         mRigidBody.mass = 1;
         mRigidBody.drag = 10;
-        
-
-
-
     }
 
     virtual public void Idle()
@@ -93,5 +89,4 @@ public class HumanoidBehavior : MonoBehaviour
     {
         
     }
-
 }

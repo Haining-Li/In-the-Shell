@@ -12,6 +12,9 @@ TagManager:
   - Bullet
   - Wall
   - LegPack
+  - OptPack
+  - CPUPack
+  - HidePack
   layers:
   - Default
   - TransparentFX

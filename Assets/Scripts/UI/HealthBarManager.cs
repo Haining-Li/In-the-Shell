@@ -9,7 +9,7 @@ public class HealthBarManager : MonoBehaviour
 
     // 血量系统绑定
     private HeroStatus heroStatus;
-    private int maxHealth = 100;
+    private int maxHealth;
     private int lastHealthIndex = -1;
 
     void Start()
@@ -29,7 +29,7 @@ public class HealthBarManager : MonoBehaviour
             return;
         }
 
-        maxHealth = 100; // 最大血量为100
+        maxHealth = heroStatus.mMaxHealthPoint; // 最大血量
         UpdateHealthBar();
     }
 

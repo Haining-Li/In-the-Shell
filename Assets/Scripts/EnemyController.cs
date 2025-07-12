@@ -27,6 +27,12 @@ public class EnemyController : MonoBehaviour
 
     private bool hasSpawned = false;
 
+    void Start()
+    {
+        int seed = (int)System.DateTime.Now.Ticks;
+        Debug.Log(seed);
+        Random.InitState(seed);
+    }
     void Update()
     {
         // 检查关联的门是否打开且未生成过敌人

@@ -7,7 +7,7 @@ public class HealthBarManager : MonoBehaviour
     public Sprite[] healthBarSprites;
 
     private HeroStatus heroStatus;
-    private int maxHealth = 100;
+    private int maxHealth;
     private int lastHealthIndex = -1;
 
     void Start()
@@ -26,7 +26,7 @@ public class HealthBarManager : MonoBehaviour
             return;
         }
 
-        maxHealth = 100;
+        maxHealth = heroStatus.mMaxHealthPoint; // ���Ѫ��
         UpdateHealthBar();
     }
 

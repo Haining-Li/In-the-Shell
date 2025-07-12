@@ -15,6 +15,23 @@ public class LaserBehavior : ProjectileBehavior
     void Start()
     {
         Init();
+        // 提前忽略所有敌人的碰撞（适用于已知敌人列表的情况）
+        GameObject[] ignores = null;
+        if (!Hero)
+            ignores = GameObject.FindGameObjectsWithTag("Player");
+        if (!Enemy)
+            ignores = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        Collider2D bulletCollider = GetComponent<Collider2D>();
+    
+        foreach (var enemy in ignores)
+        {
+            Collider2D enemyCollider = enemy.GetComponent<Collider2D>();
+            if (enemyCollider != null)
+            {
+                Physics2D.IgnoreCollision(bulletCollider, enemyCollider);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -63,11 +80,11 @@ public class LaserBehavior : ProjectileBehavior
         base.Destroy();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;
 
-        if (e.layer == 31 && ((Hero && e.CompareTag("Player")) || (Enemy && e.CompareTag("Enemy"))))
+        if ((Hero && e.layer == LayerMask.NameToLayer("Hero")) || (Enemy && e.layer == LayerMask.NameToLayer("Enemy")))
         {
             if (mStatus == ProjectileStatus.Flying)
             {
@@ -80,7 +97,7 @@ public class LaserBehavior : ProjectileBehavior
                 }
             }
         }
-        else if (e.layer != 31)
+        else if (e.layer == LayerMask.NameToLayer("Default"))
         {
             if (mStatus == ProjectileStatus.Flying)
             {
@@ -90,4 +107,6 @@ public class LaserBehavior : ProjectileBehavior
             }
         }
     }
+
+
 }

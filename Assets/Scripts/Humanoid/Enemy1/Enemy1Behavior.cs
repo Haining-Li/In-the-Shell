@@ -12,11 +12,6 @@ public class Enemy1Behavior : HumanoidBehavior
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void Idle()
     {
         base.Idle();

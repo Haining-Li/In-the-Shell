@@ -12,6 +12,9 @@ TagManager:
   - Bullet
   - Wall
   - LegPack
+  - OptPack
+  - CPUPack
+  - HidePack
   layers:
   - Default
   - TransparentFX
@@ -39,12 +42,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Obstacle
+  - Hero
   - Item
   - Sight
   - Projectile
-  - Humanoid
+  - Enemy
   m_SortingLayers:
   - name: Default
     uniqueID: 0

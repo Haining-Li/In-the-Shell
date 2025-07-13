@@ -142,6 +142,8 @@ public class PatrolEnemyAI : HumanoidController
         }
         else
         {
+            Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
+            mBehaviorHandler.mFacingDirection = relaPos;
             // Éä»÷×´Ì¬
             mBehaviorHandler.Shoot();
 

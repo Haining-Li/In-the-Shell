@@ -9,12 +9,14 @@ public class HeroBehavior : HumanoidBehavior
 
     public float slowMotionFactor = 0.5f;      
     private float slowMotionDuration = 5f;      
-    private float slowMotionCooldown = 10f;     
+    private float slowMotionCooldown = 10f;
+    private float dashCooldown = 1f;
     private float mOriginalFixedDeltaTime;     
     private bool mIsTimeSlowing = false;       
     private bool mIsOnCooldown = false;        
     public bool IsTimeSlowingActive => mIsTimeSlowing;
     public bool IsOnCooldown => mIsOnCooldown;
+    public bool IsInvincible = false;
 
     private float hidingDuration = 10f;      
     private float hidingCooldown = 60f;      
@@ -22,12 +24,15 @@ public class HeroBehavior : HumanoidBehavior
     private bool mIsHiding = false;
     private bool mIsOnHidingCoolDown = false;
     float mHideTimer = 0f;
+    float mDashTimer = 0f;
 
     public bool IsHiding => mIsHiding;
     public bool IsHidingOnCooldown => mIsOnHidingCoolDown;
 
     public delegate void TimeSlowChangedEvent(bool isActive, float duration);
     public event TimeSlowChangedEvent OnTimeSlowChanged;
+
+    private Rigidbody2D rb2D;
 
     void Start()
     {
@@ -36,6 +41,7 @@ public class HeroBehavior : HumanoidBehavior
         mOriginalFixedDeltaTime = Time.fixedDeltaTime;
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;
+        rb2D = GetComponent<Rigidbody2D>();
     }
     public void ActivateTimeSlow()
     {
@@ -137,7 +143,6 @@ public class HeroBehavior : HumanoidBehavior
         mAnimator.SetFloat("MoveSpeed", 1f);
     }
 
-    // �޸�������� - ʹ�ò�������Ӱ���ʱ��
     public override void Shoot()
     {
         mAnimator.SetTrigger("Shoot");
@@ -148,17 +153,17 @@ public class HeroBehavior : HumanoidBehavior
         }
     }
 
-    // �޸ĳ�̷���
     public override void Dash()
     {
-        if (canDash)
+
+        if (canDash && Time.unscaledTime - mDashTimer > dashCooldown )
         {
-            // ����ʵ�ʵĳ����������ʱ�����ţ�
             Vector3 effectiveForce = mIsTimeSlowing ?
                 20 * mSpeed * mDirection / slowMotionFactor :
                 20 * mSpeed * mDirection;
 
             mRigidBody.AddForce(effectiveForce, ForceMode2D.Impulse);
+            mDashTimer = Time.unscaledTime;
         }
     }
 
@@ -170,6 +175,18 @@ public class HeroBehavior : HumanoidBehavior
 
     void Update()
     {
+        Vector2 velocity = rb2D.velocity;
+        float speed = velocity.magnitude; // 直接获取速度的大小（速率）
+
+        if(speed > mSpeed)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Projectile");
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Hero");
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ActivateTimeSlow();

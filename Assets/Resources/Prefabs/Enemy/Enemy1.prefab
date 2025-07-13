@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -1326031621549368289}
   - component: {fileID: -560196360786987609}
   - component: {fileID: 7834620901448723549}
-  - component: {fileID: 6339588146096701814}
   - component: {fileID: 7393880075171980988}
   - component: {fileID: 4108199035499397466}
   - component: {fileID: 663273435726190955}
@@ -183,7 +182,7 @@ MonoBehaviour:
   mSpeed: 25
   mBullet: {fileID: 308919726504299372, guid: 89faf26732ec535439c62442df64cb2c, type: 3}
   mShootRate: 0.5
---- !u!114 &6339588146096701814
+--- !u!114 &7393880075171980988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,27 +191,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4729700831421871409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e02cd1e39c41547bea478ed637f92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMaxHealthPoint: 50
-  mHP: 100
-  bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
---- !u!114 &7393880075171980988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4729700831421871409}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 624bfcb769b18164797b8762da20e354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxHealthPoint: 50
   mHP: 100
-  bloodPackagePrefab: {fileID: 0}
+  bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
 --- !u!114 &4108199035499397466
 MonoBehaviour:
   m_ObjectHideFlags: 0

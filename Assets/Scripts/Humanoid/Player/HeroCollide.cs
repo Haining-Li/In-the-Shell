@@ -38,7 +38,7 @@ public class HeroCollide : MonoBehaviour
         }
         else if (e.tag == "BloodPackage")
         {
-            GetComponent<HumanoidStatus>().Recover(10);
+            GetComponent<HumanoidStatus>().Recover(50);
             BloodPackage bp = collision.gameObject.GetComponent<BloodPackage>();
             bp.Delete();
         }

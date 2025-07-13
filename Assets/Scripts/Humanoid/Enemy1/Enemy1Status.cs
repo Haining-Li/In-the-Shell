@@ -35,7 +35,7 @@ public class Enemy1Status : HumanoidStatus
             mIsDying = true;
             mAnimator.SetTrigger("Die");
             mStatusTimer = Time.time;
-        } 
+        }
         else
         {
             mAnimator.SetTrigger("GetHurt");

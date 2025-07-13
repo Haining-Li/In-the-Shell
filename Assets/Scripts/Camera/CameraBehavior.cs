@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 public class CameraBehavior : MonoBehaviour
 {
     public GameObject mFocus = null;
+    [SerializeField]
     private float mFollowRate = 0.007f;
 
     void Start()

@@ -20,7 +20,6 @@ public class HidePackUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Hero.getHidePack);
         if (Hero.getHidePack) { mAnimator.SetTrigger("GetHidePack"); }
 
         if (HeroBehavior.IsHidingOnCooldown) { mAnimator.SetBool("IsCooling", true); }

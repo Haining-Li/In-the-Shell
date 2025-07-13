@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4851447808400065534}
   - component: {fileID: 3160855265316918193}
   - component: {fileID: 3440106750720958819}
+  - component: {fileID: 7430268162514026384}
   m_Layer: 31
   m_Name: Enemy2
   m_TagString: Enemy
@@ -202,7 +203,7 @@ MonoBehaviour:
   mFirePoint: {x: 0, y: 0, z: 0}
   mSpeed: 10
   mBullet: {fileID: 308919726504299372, guid: c66594b771a8c9d4b91113608f153513, type: 3}
-  mShootRate: 0.5
+  mShootRate: 0.3
   mBulletNum: 12
 --- !u!114 &2401783133850958304
 MonoBehaviour:
@@ -216,9 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e02cd1e39c41547bea478ed637f92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMaxHealthPoint: 100
-  mHP: 100
-  bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
+  mMaxHealthPoint: 500
+  mHP: 500
+  bloodPackagePrefab: {fileID: 7125041344074361118, guid: bdfc4d8e63eb31548936d6b49142fb5e, type: 3}
 --- !u!114 &4851447808400065534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4250378359336502022}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f16e77ab35af1c4e995e90495cc0029, type: 3}
   m_Name: 
@@ -255,6 +256,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5c1a77cbec4cd4cae44173461ce4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7430268162514026384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250378359336502022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6bae5813cbbbf44a5169d90853855a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolRange: 30
+  shootingDuration: 2
+  waypointReachThreshold: 0.5
+  fixedSeed: 0
+  useFixedSeed: 0
 --- !u!1001 &3903348583628482133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 1673347317146882489, guid: 500ee0b24518ed3498f61cc612bc0bf2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085057742033173357, guid: 500ee0b24518ed3498f61cc612bc0bf2, type: 3}
+      propertyPath: m_Radius
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

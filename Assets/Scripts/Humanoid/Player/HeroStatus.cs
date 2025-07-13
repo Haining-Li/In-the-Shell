@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class HeroStatus : HumanoidStatus
 {
+    private CombatTimer combatTimer; // 确保已声明这个变量
+    // 删除这些重复声明
+    private Animator mAnimator;
+    private bool mIsDying;
+    private float mStatusTimer;
+    private int mHealthPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         mAnimator = GetComponent<Animator>();
+        combatTimer = FindObjectOfType<CombatTimer>(); // 确保正确初始化
+        if (combatTimer == null)
+        {
+            Debug.LogWarning("CombatTimer not found in scene!");
+        }
     }
 
     // Update is called once per frame
@@ -19,13 +31,8 @@ public class HeroStatus : HumanoidStatus
             {
                 Die();
             }
-            else
-            {
-            }
         }
-
     }
-
 
     public override void GetHurt(int damage)
     {
@@ -35,6 +42,12 @@ public class HeroStatus : HumanoidStatus
             mIsDying = true;
             mAnimator.SetTrigger("Die");
             mStatusTimer = Time.time;
+
+            // 死亡时立即暂停计时器
+            if (combatTimer != null)
+            {
+                combatTimer.PauseAndResetTimer();
+            }
         }
         else
         {
@@ -45,12 +58,17 @@ public class HeroStatus : HumanoidStatus
     public override void Die()
     {
         base.Die();
-    
         
+        // 死亡面板显示
         GameObject canvas = GameObject.Find("Death");
-        Transform panelTransform = canvas.transform.Find("Panel");
-        GameObject panel = panelTransform.gameObject;
-        panel.SetActive(true);
-        
+        if (canvas != null)
+        {
+            Transform panelTransform = canvas.transform.Find("Panel");
+            if (panelTransform != null)
+            {
+                GameObject panel = panelTransform.gameObject;
+                panel.SetActive(true);
+            }
+        }
     }
 }

@@ -72,8 +72,11 @@ public class Enemy1AI : HumanoidController
     void Alert()
     {
         
+        
     }
 
+    private float mRandomMoveTimer = 0f;
+    private float mRandomMoveRate = 1f;
     void Attack()
     {
         if (mSightHandler.isInSight)
@@ -82,10 +85,15 @@ public class Enemy1AI : HumanoidController
             mBehaviorHandler.mFacingDirection = relaPos;
             if (relaPos.magnitude > 60f)
                 mBehaviorHandler.mMoveDirection = relaPos;
-            else if (relaPos.magnitude < 40f)
-                mBehaviorHandler.mFacingDirection = -relaPos;
-            else
-                mBehaviorHandler.mFacingDirection = Vector3.zero;
+            else if (relaPos.magnitude < 40f) {
+                mBehaviorHandler.mMoveDirection = -relaPos;
+            }
+            else {
+                int sign = Random.Range(-1, 1);
+                Quaternion rotation = Quaternion.Euler(0, 0, 90);
+
+                mBehaviorHandler.mMoveDirection = sign * (rotation * relaPos);
+            }
             mBehaviorHandler.Move();
             mBehaviorHandler.Shoot();
         }

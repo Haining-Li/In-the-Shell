@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1AI : HumanoidController
+public class MonoAI : HumanoidController
 {
     // Start is called before the first frame update
     private bool towardsRight = true;
@@ -16,6 +16,7 @@ public class Enemy1AI : HumanoidController
     {
         Idle, Alert, Attack
     }
+    [SerializeField]
     private Status mStatus = Status.Idle;
 
     // Update is called once per frame
@@ -68,9 +69,27 @@ public class Enemy1AI : HumanoidController
 
     }
 
-    
+    private float mAlertTimer = 0f;
+    private float mChangeRate = 1f;
+    private bool isRandomMove = false;
     void Alert()
     {
+        Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
+        if (Time.time - mAlertTimer > mChangeRate)
+        {
+            mAlertTimer = Time.time;
+            isRandomMove = !isRandomMove;
+            if (isRandomMove)
+            {
+                float angle = Random.Range(-10, 10);
+                Quaternion rotation = Quaternion.Euler(0, 0, angle);
+                mBehaviorHandler.mMoveDirection = rotation * relaPos;
+            }
+            else
+            {
+                mBehaviorHandler.Idle();
+            }
+        }
         
     }
 
@@ -82,10 +101,15 @@ public class Enemy1AI : HumanoidController
             mBehaviorHandler.mFacingDirection = relaPos;
             if (relaPos.magnitude > 60f)
                 mBehaviorHandler.mMoveDirection = relaPos;
-            else if (relaPos.magnitude < 40f)
-                mBehaviorHandler.mFacingDirection = -relaPos;
-            else
-                mBehaviorHandler.mFacingDirection = Vector3.zero;
+            else if (relaPos.magnitude < 40f) {
+                mBehaviorHandler.mMoveDirection = -relaPos;
+            }
+            else {
+                int sign = Random.Range(-1, 1);
+                Quaternion rotation = Quaternion.Euler(0, 0, 90);
+
+                mBehaviorHandler.mMoveDirection = sign * (rotation * relaPos);
+            }
             mBehaviorHandler.Move();
             mBehaviorHandler.Shoot();
         }

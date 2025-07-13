@@ -17,13 +17,19 @@ public class DoorController : MonoBehaviour
     public Sprite openState;
 
     [Header("Animation Settings")]
-    
-    private Collider2D doorCollider;
     public float activationDelay = 0.5f;
     public float openingInterval = 0.3f;
     
+    [Header("Room Type")]
+    [Tooltip("是否战斗房间的入口门")]
+    public bool isCombatRoomDoor = false;
+    [Tooltip("是否剧情房间的入口门")]
+    public bool isStoryRoomDoor = false;
+
+    private Collider2D doorCollider;
     private SpriteRenderer spriteRenderer;
     private bool isOpen = false;
+    private CombatTimer combatTimer; // 新增计时器引用
 
     public bool IsOpen { get { return isOpen; } }
     
@@ -32,6 +38,12 @@ public class DoorController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         doorCollider = GetComponent<Collider2D>();
         ResetDoor();
+    }
+
+    void Start()
+    {
+        // 获取场景中的计时器
+        combatTimer = FindObjectOfType<CombatTimer>();
     }
     
     public void ResetDoor()
@@ -65,8 +77,20 @@ public class DoorController : MonoBehaviour
         
         // 完全打开状态
         spriteRenderer.sprite = openState;
-        doorCollider.enabled = false; // 禁用碰撞体
+        doorCollider.enabled = false;
         isOpen = true;
+
+        // 新增：根据门类型触发计时器逻辑
+        if (combatTimer != null)
+        {
+            if (isCombatRoomDoor)
+            {
+                combatTimer.StartTimer();
+            }
+            else if (isStoryRoomDoor)
+            {
+                combatTimer.StopTimer();
+            }
+        }
     }
-    
 }

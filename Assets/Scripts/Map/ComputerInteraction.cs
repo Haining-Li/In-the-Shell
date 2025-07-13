@@ -27,7 +27,6 @@ public class ComputerInteraction : MonoBehaviour
     
     void Update()
     {
-
         // 检查heroTransform是否有效
         if (heroTransform == null)
         {

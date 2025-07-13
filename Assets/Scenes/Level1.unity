@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: mFocus
       value: 
       objectReference: {fileID: 1431409238}
+    - target: {fileID: 3430212385113810089, guid: 830797e9c4ccd444da8d9b875c3608ac, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4160749687
+      objectReference: {fileID: 0}
     - target: {fileID: 5691651728752109765, guid: 830797e9c4ccd444da8d9b875c3608ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

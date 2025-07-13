@@ -16,7 +16,8 @@ public class Enemy3Status : HumanoidStatus
     {
         if (mIsDying)
         {
-            if (Time.time - mStatusTimer > 1.15f)
+            AnimatorStateInfo stateInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+            if (Time.time - mStatusTimer > stateInfo.length)
             {
                 Die();
             }
@@ -30,10 +31,10 @@ public class Enemy3Status : HumanoidStatus
     {
         // Debug.Log(mHP);
         base.GetHurt(damage);
-        if (mHealthPoint == 0)
+        if (mHealthPoint == 0 && !mIsDying)
         {
             mIsDying = true;
-            mAnimator.SetTrigger("Die");
+            mAnimator.SetBool("Die", true);
             mStatusTimer = Time.time;
         }
         else

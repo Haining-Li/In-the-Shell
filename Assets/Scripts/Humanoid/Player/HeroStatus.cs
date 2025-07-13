@@ -22,7 +22,8 @@ public class HeroStatus : HumanoidStatus
     {
         if (mIsDying)
         {
-            if (Time.time - mStatusTimer > 1.15f)
+            AnimatorStateInfo stateInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+            if (Time.time - mStatusTimer > stateInfo.length)
             {
                 Die();
             }
@@ -32,11 +33,11 @@ public class HeroStatus : HumanoidStatus
     public override void GetHurt(int damage)
     {
         base.GetHurt(damage);
-        Debug.Log(mHealthPoint);
-        if (mHealthPoint <= 0)
+        // Debug.Log(mHealthPoint);
+        if (mHealthPoint <= 0 && !mIsDying)
         {
             mIsDying = true;
-            mAnimator.SetTrigger("Die");
+            mAnimator.SetBool("Die", true);
             mStatusTimer = Time.time;
 
             // 死亡时立即暂停计时器

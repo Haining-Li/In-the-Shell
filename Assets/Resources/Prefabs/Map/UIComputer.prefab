@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: qwetryjkjghgdfsdfg
+  m_text: Get the CPU, and press Left-Shift to get a faster response.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 67.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -312,7 +312,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -783315782, guid: f3a2002eddc5e4d4abdb41f1ae2cf10f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

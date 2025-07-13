@@ -2882,6 +2882,10 @@ PrefabInstance:
       propertyPath: canDash
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4350502379578877612, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
+      propertyPath: mBullet
+      value: 
+      objectReference: {fileID: 308919726504299372, guid: 1723fb17d097c9b43b9b863cd5f48d1d, type: 3}
     - target: {fileID: 4729700831421871409, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
       propertyPath: m_Name
       value: Hero

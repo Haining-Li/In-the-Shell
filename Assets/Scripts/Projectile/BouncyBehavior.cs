@@ -15,6 +15,23 @@ public class BouncyBehavior : ProjectileBehavior
     void Start()
     {
         Init();
+        // 提前忽略所有敌人的碰撞（适用于已知敌人列表的情况）
+        GameObject[] ignores = null;
+        if (!Hero)
+            ignores = GameObject.FindGameObjectsWithTag("Player");
+        if (!Enemy)
+            ignores = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        Collider2D bulletCollider = GetComponent<Collider2D>();
+    
+        foreach (var enemy in ignores)
+        {
+            Collider2D enemyCollider = enemy.GetComponent<Collider2D>();
+            if (enemyCollider != null)
+            {
+                Physics2D.IgnoreCollision(bulletCollider, enemyCollider);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -83,6 +100,7 @@ public class BouncyBehavior : ProjectileBehavior
         }
         else if (e.layer == LayerMask.NameToLayer("Default"))
         {
+            Debug.Log("Enter" + mCrashCount);
             if (mStatus == ProjectileStatus.Flying)
             {
                 mStatusTimer = Time.time;
@@ -103,6 +121,13 @@ public class BouncyBehavior : ProjectileBehavior
                 }
             }
         }
+    }
+
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        Debug.Log("Stay" + mCrashCount);
+        mCrashCount--;
     }
 
 }

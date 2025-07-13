@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroStatus : HumanoidStatus
 {
     private CombatTimer combatTimer; // 确保已声明这个变量
+    // 删除这些重复声明
     private Animator mAnimator;
     private bool mIsDying;
     private float mStatusTimer;

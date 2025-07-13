@@ -16,12 +16,16 @@ public class Enemy2Status : HumanoidStatus
     {
         if (mIsDying)
         {
-            if (Time.time - mStatusTimer > 1.15f)
+            AnimatorStateInfo stateInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+            if (Time.time - mStatusTimer > stateInfo.length)
             {
+                Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
                 Die();
             }
             else
             {
+                Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
+
             }
         }
     }
@@ -30,10 +34,10 @@ public class Enemy2Status : HumanoidStatus
     {
         // Debug.Log(mHP);
         base.GetHurt(damage);
-        if (mHealthPoint == 0)
+        if (mHealthPoint == 0 && !mIsDying)
         {
             mIsDying = true;
-            mAnimator.SetTrigger("Die");
+            mAnimator.SetBool("Die", true);
             mStatusTimer = Time.time;
         } 
         else

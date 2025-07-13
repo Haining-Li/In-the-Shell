@@ -204,7 +204,7 @@ MonoBehaviour:
   mSpeed: 10
   mBullet: {fileID: 308919726504299372, guid: c66594b771a8c9d4b91113608f153513, type: 3}
   mShootRate: 0.3
-  mBulletNum: 12
+  mBulletNum: 9
 --- !u!114 &2401783133850958304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMaxHealthPoint: 500
   mHP: 500
-  bloodPackagePrefab: {fileID: 7125041344074361118, guid: bdfc4d8e63eb31548936d6b49142fb5e, type: 3}
+  bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
 --- !u!114 &4851447808400065534
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3047,6 +3047,10 @@ PrefabInstance:
       propertyPath: canDash
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4350502379578877612, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
+      propertyPath: mBullet
+      value: 
+      objectReference: {fileID: 308919726504299372, guid: 1723fb17d097c9b43b9b863cd5f48d1d, type: 3}
     - target: {fileID: 4729700831421871409, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -3669,10 +3673,6 @@ PrefabInstance:
     - target: {fileID: 48316295381043789, guid: dc7b7d2620ac8ec409fb962cd71daa0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129307464538564927, guid: dc7b7d2620ac8ec409fb962cd71daa0e, type: 3}
-      propertyPath: m_Radius
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8415045252499990532, guid: dc7b7d2620ac8ec409fb962cd71daa0e, type: 3}
       propertyPath: m_Name
@@ -5484,10 +5484,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2401783133850958304, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
-      propertyPath: bloodPackagePrefab
-      value: 
-      objectReference: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
     - target: {fileID: 4250378359336502022, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: m_Name
       value: Enemy2

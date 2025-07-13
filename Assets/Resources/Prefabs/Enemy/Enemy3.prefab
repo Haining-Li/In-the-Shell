@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMaxHealthPoint: 100
   mHP: 100
-  bloodPackagePrefab: {fileID: 0}
+  bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
 --- !u!114 &2794019871498045632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085057742033173357, guid: 500ee0b24518ed3498f61cc612bc0bf2, type: 3}
       propertyPath: m_Radius
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

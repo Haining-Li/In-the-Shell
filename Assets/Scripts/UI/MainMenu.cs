@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject levelSelectionPanel;
     [SerializeField] private GameObject creditPanel;
+    [SerializeField] private GameObject settingsPanel;
     
     public void ShowLevelSelection()
     {
@@ -21,11 +22,18 @@ public class MainMenu : MonoBehaviour
         mainMenuPanel.SetActive(false);
         creditPanel.SetActive(true);
     }
+
+    public void ShowSettings()
+    {
+        mainMenuPanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
     
     public void BackToMainMenu()
     {
         levelSelectionPanel.SetActive(false);
         creditPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
     

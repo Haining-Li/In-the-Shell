@@ -6,9 +6,9 @@ using UnityEngine;
 public class HumanoidStatus : MonoBehaviour
 {
     protected Animator mAnimator = null;
-    public int mMaxHealthPoint = 100;
+    public int mMaxHealthPoint ;
     [SerializeField]
-    protected int mHP = 100;
+    protected int mHP ;
     public int mHealthPoint
     {
         get { return mHP; }
@@ -54,7 +54,7 @@ public class HumanoidStatus : MonoBehaviour
         }
         else
         {
-            mHP = 100;
+            mHP = mMaxHealthPoint;
         }
     }
 }

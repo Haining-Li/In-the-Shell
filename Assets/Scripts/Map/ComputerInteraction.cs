@@ -54,7 +54,6 @@ public class ComputerInteraction : MonoBehaviour
                     textDisplayPanel.SetActive(true);
                     animator.enabled = false;
                     spriteRenderer.sprite = blackScreenSprite;
-                    
                 }
                 else
                 {

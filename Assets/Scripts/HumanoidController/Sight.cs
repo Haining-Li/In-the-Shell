@@ -31,7 +31,7 @@ public class Sight : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject e = collision.gameObject;
-        if (e.CompareTag("Player"))
+        if (e.CompareTag("Player")&& !e.GetComponent<HeroBehavior>().IsHiding)
         {
             mAlert = true;
             mPos = e.transform.localPosition;
@@ -41,8 +41,9 @@ public class Sight : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         GameObject e = other.gameObject;
-        if (e.CompareTag("Player"))
+        if (e.CompareTag("Player") && !e.GetComponent<HeroBehavior>().IsHiding)
         {
+            mAlert = true;
             mPos = e.transform.localPosition;
         }
     }

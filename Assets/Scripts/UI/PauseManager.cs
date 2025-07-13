@@ -6,9 +6,15 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuPanel;
     private bool isPaused = false;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
@@ -26,8 +32,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenuPanel.SetActive(true);
         isPaused = true;
-        // 可选：解锁鼠标光标
-        Cursor.lockState = CursorLockMode.None;
+
         Cursor.visible = true;
     }
 
@@ -36,15 +41,15 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenuPanel.SetActive(false);
         isPaused = false;
-        // 可选：锁定鼠标光标（如果是3D游戏）
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // 恢复之前的光标状态
+        Cursor.visible = true;
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; // 确保恢复时间
-        SceneManager.LoadScene(0); // 假设主菜单是场景0
+        // 确保光标在主菜单可见
+        SceneManager.LoadScene(0); // 主菜单是场景0
     }
 
     public void RestartLevel()

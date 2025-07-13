@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 192600194880748067}
   - component: {fileID: 2237918859216792318}
   - component: {fileID: 1119590108476702261}
-  - component: {fileID: 7347705675031102307}
   - component: {fileID: 283000033444938482}
   - component: {fileID: -3828776108768699061}
+  - component: {fileID: 128544516616548450}
   m_Layer: 30
   m_Name: BlueLaser
   m_TagString: PlayerBullet
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -4.585, y: 32.085, z: 15.853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2237918859216792318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,22 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7347705675031102307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308919726504299372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce75ed5e2fd56a4c848778601373596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSpeed: 100
-  mDamage: 10
-  Hero: 0
-  Enemy: 1
 --- !u!50 &283000033444938482
 Rigidbody2D:
   serializedVersion: 4
@@ -197,3 +181,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31794566, y: 0.11220808}
   m_EdgeRadius: 0
+--- !u!114 &128544516616548450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308919726504299372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce75ed5e2fd56a4c848778601373596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSpeed: 100
+  mDamage: 10
+  Hero: 0
+  Enemy: 1

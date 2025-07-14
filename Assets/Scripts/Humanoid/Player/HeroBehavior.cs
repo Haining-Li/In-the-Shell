@@ -132,7 +132,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         if (mIsTimeSlowing)
         {
-            float tempSpeed = mSpeed / slowMotionFactor;
+            float tempSpeed = 0.2f * mSpeed / slowMotionFactor;
             float force = tempSpeed * mRigidBody.drag;
             mRigidBody.AddForce(force * mDirection);
         }
@@ -159,8 +159,8 @@ public class HeroBehavior : HumanoidBehavior
         if (canDash && Time.unscaledTime - mDashTimer > dashCooldown )
         {
             Vector3 effectiveForce = mIsTimeSlowing ?
-                20 * mSpeed * mDirection / slowMotionFactor :
-                20 * mSpeed * mDirection;
+                5 * mSpeed * mDirection / slowMotionFactor:
+                5 * mSpeed * mDirection;
 
             mRigidBody.AddForce(effectiveForce, ForceMode2D.Impulse);
             mDashTimer = Time.unscaledTime;

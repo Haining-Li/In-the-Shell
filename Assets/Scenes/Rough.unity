@@ -301,7 +301,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 85d909d600ad4774a9c995a45682428e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c218df95eb986e47b23c029fd58ef93, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4732,6 +4732,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4350502379578877612, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
+      propertyPath: mSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4729700831421871409, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -4779,6 +4783,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4197160770989187444, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
+    - {fileID: 8276760563989557609, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
@@ -8444,9 +8449,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2401783133850958304, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
+      propertyPath: bloodPackagePrefab
+      value: 
+      objectReference: {fileID: 7125041344074361118, guid: bdfc4d8e63eb31548936d6b49142fb5e, type: 3}
     - target: {fileID: 4250378359336502022, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: m_Name
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430268162514026384, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
+      propertyPath: patrolRange
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8078833324854331776, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14089,6 +14102,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
+      propertyPath: gradeThresholds.A
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
+      propertyPath: gradeThresholds.B
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
+      propertyPath: gradeThresholds.APlus
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2657382848368303756, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3221698
@@ -14435,6 +14460,10 @@ PrefabInstance:
     - target: {fileID: 8015550096859467628, guid: de514fa46aa8b934abbd518c1c921f46, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642290234472078099, guid: de514fa46aa8b934abbd518c1c921f46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8932969755118692851, guid: de514fa46aa8b934abbd518c1c921f46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

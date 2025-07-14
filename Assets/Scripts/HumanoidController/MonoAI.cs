@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonoAI : HumanoidController
 {
     // Start is called before the first frame update
-    private bool towardsRight = true;
+    // private bool towardsRight = true;
     [SerializeField] private float mAlertDuration = 5f;
     void Start()
     {
@@ -65,7 +65,7 @@ public class MonoAI : HumanoidController
                 break;
         }
 
-        GetComponent<SpriteRenderer>().flipX = !towardsRight;
+        FlipX();
 
     }
 

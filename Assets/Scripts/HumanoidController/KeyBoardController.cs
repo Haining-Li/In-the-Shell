@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyBoardController : HumanoidController
 {
     // Start is called before the first frame update
-    private bool towardsRight = true;
+    // private bool towardsRight = true;
     void Start()
     {
         mBehaviorHandler = GetComponent<HumanoidBehavior>();
@@ -58,6 +58,6 @@ public class KeyBoardController : HumanoidController
 
         }
 
-        GetComponent<SpriteRenderer>().flipX = !towardsRight;
+        FlipX();
     }
 }

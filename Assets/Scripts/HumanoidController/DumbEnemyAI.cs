@@ -5,7 +5,7 @@ using UnityEngine;
 public class DumbEnemyAI : HumanoidController
 {
     // Start is called before the first frame update
-    private bool towardsRight = true;
+    // private bool towardsRight = true;
     void Start()
     {
         Init();

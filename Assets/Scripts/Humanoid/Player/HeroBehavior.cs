@@ -3,23 +3,24 @@ using UnityEngine;
 
 public class HeroBehavior : HumanoidBehavior
 {
+    
     public bool canDash = false;
     public bool canMoveSlow = false;
     public bool canHide = false;
 
-    public float slowMotionFactor = 0.5f;      
-    private float slowMotionDuration = 5f;      
+    public float slowMotionFactor = 0.5f;
+    private float slowMotionDuration = 5f;
     private float slowMotionCooldown = 10f;
     private float dashCooldown = 1f;
-    private float mOriginalFixedDeltaTime;     
-    private bool mIsTimeSlowing = false;       
-    private bool mIsOnCooldown = false;        
+    private float mOriginalFixedDeltaTime;
+    private bool mIsTimeSlowing = false;
+    private bool mIsOnCooldown = false;
     public bool IsTimeSlowingActive => mIsTimeSlowing;
     public bool IsOnCooldown => mIsOnCooldown;
     public bool IsInvincible = false;
 
-    private float hidingDuration = 10f;      
-    private float hidingCooldown = 60f;      
+    private float hidingDuration = 10f;
+    private float hidingCooldown = 60f;
 
     private bool mIsHiding = false;
     private bool mIsOnHidingCoolDown = false;
@@ -37,11 +38,13 @@ public class HeroBehavior : HumanoidBehavior
     void Start()
     {
         Init();
-        mFirePoint = new Vector3(0, 8, 0);
+        // mFirePoint = new Vector3(0, 8, 0);
+        mWeaponHandler = GetComponentInChildren<Weapon>();
         mOriginalFixedDeltaTime = Time.fixedDeltaTime;
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;
         rb2D = GetComponent<Rigidbody2D>();
+
     }
     public void ActivateTimeSlow()
     {
@@ -143,23 +146,24 @@ public class HeroBehavior : HumanoidBehavior
         mAnimator.SetFloat("MoveSpeed", 1f);
     }
 
+    public Weapon mWeaponHandler = null;
     public override void Shoot()
     {
         mAnimator.SetTrigger("Shoot");
-        if (Time.unscaledTime - mShootTimer > mShootRate)
-        {
-            base.Shoot();
-            mShootTimer = Time.unscaledTime;
-        }
+        mWeaponHandler.mFirePoint = mFirePoint;
+        mWeaponHandler.mTowards = mTowards;
+        mWeaponHandler.Shoot();
     }
+
+
 
     public override void Dash()
     {
 
-        if (canDash && Time.unscaledTime - mDashTimer > dashCooldown )
+        if (canDash && Time.unscaledTime - mDashTimer > dashCooldown)
         {
             Vector3 effectiveForce = mIsTimeSlowing ?
-                5 * mSpeed * mDirection / slowMotionFactor:
+                5 * mSpeed * mDirection / slowMotionFactor :
                 5 * mSpeed * mDirection;
 
             mRigidBody.AddForce(effectiveForce, ForceMode2D.Impulse);
@@ -178,7 +182,7 @@ public class HeroBehavior : HumanoidBehavior
         Vector2 velocity = rb2D.velocity;
         float speed = velocity.magnitude; // 直接获取速度的大小（速率）
 
-        if(speed > mSpeed)
+        if (speed > mSpeed)
         {
             gameObject.layer = LayerMask.NameToLayer("Projectile");
         }
@@ -196,4 +200,5 @@ public class HeroBehavior : HumanoidBehavior
             Hide();
         }
     }
+
 }

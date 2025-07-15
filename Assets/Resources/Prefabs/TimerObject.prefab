@@ -32,9 +32,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3670991604264326571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 106.5, y: -220}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 106.5, y: 35}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4582190883178686373
@@ -285,9 +285,9 @@ MonoBehaviour:
   timerText: {fileID: 7261336816973587790}
   gradeText: {fileID: 8516708158134380070}
   gradeThresholds:
-    APlus: 10
-    A: 15
-    B: 20
+    APlus: 100
+    A: 150
+    B: 200
 --- !u!1 &3972860856579847390
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,9 +320,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3670991604264326571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107.7, y: -220}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -107.7, y: 35}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8949458463507816018

@@ -48,7 +48,6 @@ public class HeroBehavior : HumanoidBehavior
         mHideTimer = Time.unscaledTime;
         rb2D = GetComponent<Rigidbody2D>();
         audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
-
     }
     public void ActivateTimeSlow()
     {
@@ -74,14 +73,11 @@ public class HeroBehavior : HumanoidBehavior
         
         GetComponent<URPTransparencyController>().FadeTo(0.2f);
 
-        // ����hidingDuration��
         yield return new WaitForSecondsRealtime(hidingDuration);
 
-        // �ָ�͸����
         GetComponent<URPTransparencyController>().FadeTo(1f);
         mIsHiding = false;
 
-        // ������ȴ
         StartCoroutine(HideCooldownCoroutine());
     }
 

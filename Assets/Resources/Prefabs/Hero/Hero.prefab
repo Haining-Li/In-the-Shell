@@ -318,9 +318,10 @@ MonoBehaviour:
   mShootRate: 0.1
   canDash: 0
   canMoveSlow: 0
-  canHide: 0
+  canHide: 1
   slowMotionFactor: 0.5
   IsInvincible: 0
+  mWeaponHandler: {fileID: -2563416803853829471, guid: 7d170b3d4cb2247419f4b7fa09f0c7b0, type: 3}
 --- !u!114 &-8506090089292379377
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,6 +44,14 @@ public class HeroBehavior : HumanoidBehavior
         Init();
         // mFirePoint = new Vector3(0, 8, 0);
         mWeaponHandler = GetComponentInChildren<Weapon>();
+        if (mWeaponHandler == null)
+        {
+            WeaponGenerator generator = FindObjectOfType<WeaponGenerator>();
+            GameObject defaultWeapon = generator.GunGenerator();
+            defaultWeapon.transform.SetParent(transform);
+            defaultWeapon.transform.localPosition = Vector3.zero;
+            mWeaponHandler = defaultWeapon.GetComponent<Weapon>();
+        }
         mOriginalFixedDeltaTime = Time.fixedDeltaTime;
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;

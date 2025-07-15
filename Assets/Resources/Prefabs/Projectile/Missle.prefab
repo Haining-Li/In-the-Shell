@@ -121,13 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f325cba1c35f0a40ac4f8e0750c8be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   mSpeed: 55
   mDamage: 50
-=======
-  mSpeed: 60
-  mDamage: 75
->>>>>>> cb00cc7518f3f9d358d7bb58112a0042bf071afb
   Hero: 1
   Enemy: 0
   rotationSpeed: 10

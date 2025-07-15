@@ -69,6 +69,8 @@ public class HumanoidBehavior : MonoBehaviour
     virtual public void Shoot()
     {
         GameObject e = Instantiate(mBullet);
+        if (mTowards.x < 0f)
+            mFirePoint.x = -mFirePoint.x;
 
         e.transform.localPosition = gameObject.transform.localPosition + mFirePoint;
         float angle = Mathf.Atan2(mTowards.y, mTowards.x) * Mathf.Rad2Deg;

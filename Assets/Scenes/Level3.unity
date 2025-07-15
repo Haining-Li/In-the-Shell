@@ -356,6 +356,30 @@ PrefabInstance:
       propertyPath: mFocus
       value: 
       objectReference: {fileID: 329304109}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -173
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649803644746564763, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -105
+      objectReference: {fileID: 0}
     - target: {fileID: 4847987177651091544, guid: 98e8fe0f52660a84291e6474a5e83de0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.2834835

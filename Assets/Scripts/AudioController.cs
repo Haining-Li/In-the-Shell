@@ -17,6 +17,7 @@ public class AudioController : MonoBehaviour
     public AudioClip Hide;
     public AudioClip TimeSlow;
     public AudioClip Item;
+    public AudioClip HeroHurt;
 
     void Awake()
     {

@@ -58,4 +58,8 @@ public class HumanoidStatus : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        mHP = mMaxHealthPoint;
+    }
 }

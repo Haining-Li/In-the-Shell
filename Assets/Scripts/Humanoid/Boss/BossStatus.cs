@@ -33,7 +33,7 @@ public class BossStatus : HumanoidStatus
         if (mHealthPoint == 0)
         {
             mIsDying = true;
-            mAnimator.SetTrigger("Die");
+            mAnimator.SetBool("Die",true);
             mStatusTimer = Time.time;
         } 
         else
@@ -44,10 +44,21 @@ public class BossStatus : HumanoidStatus
 
     public override void Die()
     {
-        base.Die();
-        if (Random.Range(0f, 1f) <= 1f)
+        BossAI mBossAI = GetComponent<BossAI>();
+        if (mBossAI.isRampageMode && mHealthPoint == 0)
         {
-            Instantiate(bloodPackagePrefab, transform.position, Quaternion.identity);
+            Debug.Log("Die");
+            base.Die();
+            if (Random.Range(0f, 1f) <= 1f)
+            {
+                Instantiate(bloodPackagePrefab, transform.position, Quaternion.identity);
+            }
         }
+    }
+
+    public override void Recover(int health)
+    {
+        mAnimator.SetBool("Die", false);
+        base.Recover(health);
     }
 }

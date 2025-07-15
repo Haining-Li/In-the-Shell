@@ -11,7 +11,7 @@ public class HumanoidBehavior : MonoBehaviour
 {
     protected Rigidbody2D mRigidBody = null;
     protected Animator mAnimator = null;
-    public Vector3 mFirePoint;
+    [SerializeField] public Vector3 mFirePoint = new Vector3(0,0,0);
 
     // used by Move, include speed & direction
     public float mSpeed;
@@ -69,8 +69,6 @@ public class HumanoidBehavior : MonoBehaviour
     virtual public void Shoot()
     {
         GameObject e = Instantiate(mBullet);
-        if (mTowards.x < 0f)
-            mFirePoint.x = -mFirePoint.x;
 
         e.transform.localPosition = gameObject.transform.localPosition + mFirePoint;
         float angle = Mathf.Atan2(mTowards.y, mTowards.x) * Mathf.Rad2Deg;

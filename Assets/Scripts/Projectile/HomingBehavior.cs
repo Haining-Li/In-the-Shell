@@ -21,7 +21,7 @@ public class HomingBehavior : ProjectileBehavior
     void Start()
     {
         Init();
-        base.mFlyingDuration = 20f;
+        base.mFlyingDuration = 5f;
 
         // ≤È’“ÕÊº“
         GameObject player = GameObject.FindGameObjectWithTag("Player");

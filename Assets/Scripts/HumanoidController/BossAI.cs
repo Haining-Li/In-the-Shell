@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.UIElements.Experimental;
 
 public class BossAI : HumanoidController
@@ -165,3 +166,20 @@ public class BossAI : HumanoidController
         }
     }
 }
+=======
+
+public class BossAI : HumanoidController
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        mBehaviorHandler = GetComponent<HumanoidBehavior>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+>>>>>>> aaaf91160c78540ef04847ee0c3cc19fc9ba132d

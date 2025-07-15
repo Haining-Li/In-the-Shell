@@ -11,7 +11,7 @@ public class BouncyBehavior : ProjectileBehavior
     {
         mStatusTimer = Time.time;
         mStatus = ProjectileStatus.Flying;
-        mDamage = 10;
+        // mDamage = 10;
     }
     // Start is called before the first frame update
     void Start()

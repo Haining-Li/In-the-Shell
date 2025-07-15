@@ -400,9 +400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mFirePoint: {x: 0, y: 0, z: 0}
-  mSpeed: 10
+  mSpeed: 35
   mBullet: {fileID: 308919726504299372, guid: de2c4cc5bc13bf04cb9e50d1e2c4e161, type: 3}
-  mShootRate: 1
+  mShootRate: 2
   mSectorRange: 10
   mBulletNum: 5
 --- !u!114 &706167692425032750
@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57227e0149279bb4cac9f163a9aed738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMaxHealthPoint: 100
-  mHP: 100
+  mMaxHealthPoint: 150
+  mHP: 150
   bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
 --- !u!114 &2794019871498045632
 MonoBehaviour:

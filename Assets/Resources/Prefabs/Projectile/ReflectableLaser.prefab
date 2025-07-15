@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1119590108476702261}
   - component: {fileID: 283000033444938482}
   - component: {fileID: -3828776108768699061}
-  - component: {fileID: -4941299336238385443}
+  - component: {fileID: 6649120348110938885}
   m_Layer: 30
   m_Name: ReflectableLaser
   m_TagString: PlayerBullet
@@ -181,7 +181,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31794566, y: 0.11220808}
   m_EdgeRadius: 0
---- !u!114 &-4941299336238385443
+--- !u!114 &6649120348110938885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,11 +190,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 308919726504299372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310db1f3c3a049a4ab0c6ebcefadb4e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b0976e5ea8bc9b4c9e58607dfa6aa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 100
-  mDamage: 10
+  mDamage: 15
   Hero: 0
   Enemy: 1
-  mCrashCount: 3
+  mFragmentCount: 1
+  mFragmentNum: 5
+  mSubDamageRate: 0.5

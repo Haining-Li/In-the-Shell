@@ -11,6 +11,8 @@ public class Enemy1Status : HumanoidStatus
     {
         audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
         mAnimator = GetComponent<Animator>();
+        Debug.Log("Enemy1 Animator" + mAnimator);
+        Debug.Assert(mAnimator != null, "Why?");
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class Enemy1Status : HumanoidStatus
         }
         else
         {
+            Debug.Log(mAnimator);
             mAnimator.SetTrigger("GetHurt");
         }
     }

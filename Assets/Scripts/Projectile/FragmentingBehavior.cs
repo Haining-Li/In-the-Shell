@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBehavior : ProjectileBehavior
+public class FragmentingBehavior : ProjectileBehavior
 {
+
+    public int mFragmentCount = 1;
+    public int mFragmentNum = 5;
+    public float mSubDamageRate = 0.5f;
+    private float bias = 5f;
     void Awake()
     {
         mStatusTimer = Time.time;
@@ -21,9 +26,9 @@ public class LaserBehavior : ProjectileBehavior
             ignores = GameObject.FindGameObjectsWithTag("Player");
         if (!Enemy)
             ignores = GameObject.FindGameObjectsWithTag("Enemy");
-        
+
         Collider2D bulletCollider = GetComponent<Collider2D>();
-    
+
         foreach (var enemy in ignores)
         {
             Collider2D enemyCollider = enemy.GetComponent<Collider2D>();
@@ -77,6 +82,7 @@ public class LaserBehavior : ProjectileBehavior
 
     public override void Destroy()
     {
+        
         base.Destroy();
     }
 
@@ -95,6 +101,7 @@ public class LaserBehavior : ProjectileBehavior
                 {
                     e.GetComponent<HumanoidStatus>().GetHurt(mDamage);
                 }
+                Fragmenting();
             }
         }
         else if (e.layer == LayerMask.NameToLayer("Default"))
@@ -104,6 +111,25 @@ public class LaserBehavior : ProjectileBehavior
                 mStatusTimer = Time.time;
                 mStatus = ProjectileStatus.Crash;
                 mAnimator.SetTrigger("Destroy");
+            }
+        }
+    }
+
+    void Fragmenting()
+    {
+        if (mFragmentCount > 0)
+        {
+            for (int i = 0; i < mFragmentNum; i++)
+            {
+                GameObject sub = Instantiate(gameObject);
+                FragmentingBehavior subBehavior = sub.GetComponent<FragmentingBehavior>();
+                subBehavior.mFragmentCount = mFragmentCount - 1;
+                subBehavior.mDamage = (int)(mDamage * mSubDamageRate);
+                float angle = Random.Range(0f, 360f);
+                Quaternion rotation = Quaternion.Euler(0, 0, angle);
+                sub.transform.rotation *= rotation;
+                sub.transform.localPosition = transform.localPosition + bias * sub.transform.right;
+                sub.transform.localScale *= 0.8f;
             }
         }
     }

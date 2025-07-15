@@ -6,9 +6,11 @@ public class Enemy2Status : HumanoidStatus
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject bloodPackagePrefab;
+    AudioController audioController;
     void Start()
     {
         mAnimator = GetComponent<Animator>();
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class Enemy2Status : HumanoidStatus
 
     public override void Die()
     {
+        audioController.PlaySfx(audioController.Enemy2Death);
         base.Die();
         if (Random.Range(0f, 1f) <= 1f)
         {

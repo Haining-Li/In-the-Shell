@@ -52,3 +52,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Leg
+    uniqueID: 2948091159
+    locked: 0
+  - name: Body
+    uniqueID: 3045479137
+    locked: 0

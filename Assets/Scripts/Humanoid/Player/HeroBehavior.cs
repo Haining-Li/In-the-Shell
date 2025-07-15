@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroBehavior : HumanoidBehavior
@@ -33,6 +34,8 @@ public class HeroBehavior : HumanoidBehavior
     public delegate void TimeSlowChangedEvent(bool isActive, float duration);
     public event TimeSlowChangedEvent OnTimeSlowChanged;
 
+    AudioController audioController;
+
     private Rigidbody2D rb2D;
 
     void Start()
@@ -44,12 +47,13 @@ public class HeroBehavior : HumanoidBehavior
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;
         rb2D = GetComponent<Rigidbody2D>();
-
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
     public void ActivateTimeSlow()
     {
         if (!mIsTimeSlowing && canMoveSlow && !mIsOnCooldown)
         {
+            audioController.PlaySfx(audioController.TimeSlow);
             StartCoroutine(TimeSlowCoroutine());
         }
     }
@@ -58,6 +62,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         if (!mIsHiding && canHide && !mIsOnHidingCoolDown)
         {
+            audioController.PlaySfx(audioController.Hide);
             StartCoroutine(HideCoroutine());
         }
     }
@@ -65,19 +70,14 @@ public class HeroBehavior : HumanoidBehavior
     private IEnumerator HideCoroutine()
     {
         mIsHiding = true;
-        // ����͸����Ϊ0.5
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        Color originalColor = renderer.color;
-        renderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+        
+        GetComponent<URPTransparencyController>().FadeTo(0.2f);
 
-        // ����hidingDuration��
         yield return new WaitForSecondsRealtime(hidingDuration);
 
-        // �ָ�͸����
-        renderer.color = originalColor;
+        GetComponent<URPTransparencyController>().FadeTo(1f);
         mIsHiding = false;
 
-        // ������ȴ
         StartCoroutine(HideCooldownCoroutine());
     }
 
@@ -135,7 +135,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         if (mIsTimeSlowing)
         {
-            float tempSpeed = 0.2f * mSpeed / slowMotionFactor;
+            float tempSpeed = 2 * mSpeed / slowMotionFactor;
             float force = tempSpeed * mRigidBody.drag;
             mRigidBody.AddForce(force * mDirection);
         }
@@ -150,6 +150,13 @@ public class HeroBehavior : HumanoidBehavior
     public override void Shoot()
     {
         mAnimator.SetTrigger("Shoot");
+        if (Time.unscaledTime - mShootTimer > mShootRate)
+        {
+            // audioController.PlaySfx(audioController.HeroShoot);
+            // base.Shoot();
+            mShootTimer = Time.unscaledTime;
+        }
+        Debug.Log(mWeaponHandler.name);
         mWeaponHandler.mFirePoint = mFirePoint;
         mWeaponHandler.mTowards = mTowards;
         mWeaponHandler.Shoot();
@@ -162,6 +169,7 @@ public class HeroBehavior : HumanoidBehavior
 
         if (canDash && Time.unscaledTime - mDashTimer > dashCooldown)
         {
+            audioController.PlaySfx(audioController.Dash);
             Vector3 effectiveForce = mIsTimeSlowing ?
                 5 * mSpeed * mDirection / slowMotionFactor :
                 5 * mSpeed * mDirection;

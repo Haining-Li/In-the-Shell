@@ -33,7 +33,7 @@ public class HeroStatus : HumanoidStatus
     public override void GetHurt(int damage)
     {
         base.GetHurt(damage);
-        // Debug.Log(mHealthPoint);
+        Debug.Log(damage + " " + mHealthPoint);
         if (mHealthPoint <= 0 && !mIsDying)
         {
             mIsDying = true;

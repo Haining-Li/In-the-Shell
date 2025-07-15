@@ -7,7 +7,7 @@ public class CameraBehavior : MonoBehaviour
 {
     public GameObject mFocus = null;
     [SerializeField]
-    private float mFollowRate = 0.007f;
+    private float mFollowRate;
 
     void Start()
     {

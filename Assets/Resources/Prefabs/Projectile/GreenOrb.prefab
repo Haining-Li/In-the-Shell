@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 50
-  mDamage: 0
+  mDamage: 10
   Hero: 1
   Enemy: 0
 --- !u!50 &283000033444938482

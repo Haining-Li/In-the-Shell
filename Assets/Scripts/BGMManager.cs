@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class BGMManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static BGMManager Instance;
     public AudioSource bgmSource;
-    public AudioSource sfxSource;
 
     void Awake()
     {
@@ -23,20 +22,13 @@ public class AudioManager : MonoBehaviour
     {
         bgmSource.volume = volume;
         PlayerPrefs.SetFloat("BGMVolume", volume);
-    }
-
-    public void SetSFXVolume(float volume)
-    {
-        sfxSource.volume = volume;
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void LoadVolumeSettings()
     {
-        float bgm = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        float sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        bgmSource.volume = bgm;
-        sfxSource.volume = sfx;
+        float volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        bgmSource.volume = volume;
     }
 }
 

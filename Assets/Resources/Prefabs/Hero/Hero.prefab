@@ -317,12 +317,12 @@ MonoBehaviour:
   mSpeed: 50
   mBullet: {fileID: 308919726504299372, guid: 1723fb17d097c9b43b9b863cd5f48d1d, type: 3}
   mShootRate: 0.1
-  canDash: 1
-  canMoveSlow: 1
+  canDash: 0
+  canMoveSlow: 0
   canHide: 1
   slowMotionFactor: 0.5
   IsInvincible: 0
-  mWeaponHandler: {fileID: 0}
+  mWeaponHandler: {fileID: -2563416803853829471, guid: 7d170b3d4cb2247419f4b7fa09f0c7b0, type: 3}
 --- !u!114 &-8506090089292379377
 MonoBehaviour:
   m_ObjectHideFlags: 0

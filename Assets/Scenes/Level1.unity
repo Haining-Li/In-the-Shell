@@ -2962,18 +2962,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
-      propertyPath: gradeThresholds.A
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
-      propertyPath: gradeThresholds.B
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 929594586986493800, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
-      propertyPath: gradeThresholds.APlus
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 2657382848368303756, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3221698
@@ -3017,14 +3005,6 @@ PrefabInstance:
     - target: {fileID: 2708239945432302469, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
       propertyPath: m_Name
       value: TimerObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658887241679488190, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -230.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6237929243638877009, guid: 21be33f9ff725514db6db36a723cf4fa, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -229.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

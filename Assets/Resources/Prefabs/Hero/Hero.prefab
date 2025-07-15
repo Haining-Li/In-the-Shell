@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: -9165758496580937479}
   - component: {fileID: 4350502379578877612}
   - component: {fileID: -8506090089292379377}
+  - component: {fileID: 8198372288291100373}
   m_Layer: 27
   m_Name: Hero
   m_TagString: Player
@@ -167,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1541323155, guid: 96e1e56aa8b8f1c438123fdb9f7c1621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -296,10 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d926dae3f513d4dbcc102370d8d9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getLegPack: 0
-  getOptPack: 0
-  getCPUPack: 0
-  getHidePack: 0
+  getLegPack: 1
+  getOptPack: 1
+  getCPUPack: 1
+  getHidePack: 1
 --- !u!114 &4350502379578877612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,14 +314,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mFirePoint: {x: 0, y: 0, z: 0}
-  mSpeed: 30
+  mSpeed: 50
   mBullet: {fileID: 308919726504299372, guid: 1723fb17d097c9b43b9b863cd5f48d1d, type: 3}
   mShootRate: 0.1
-  canDash: 0
-  canMoveSlow: 0
-  canHide: 0
+  canDash: 1
+  canMoveSlow: 1
+  canHide: 1
   slowMotionFactor: 0.5
   IsInvincible: 0
+  mWeaponHandler: {fileID: 0}
 --- !u!114 &-8506090089292379377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +337,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMaxHealthPoint: 50000
   mHP: 50000
+--- !u!114 &8198372288291100373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729700831421871409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8837b0cd9472b4d49ac9e6c1a02611a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &7576403362146034510
 GameObject:
   m_ObjectHideFlags: 0

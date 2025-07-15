@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public Vector3 mFirePoint;
     public Vector3 mTowards;
     // Start is called before the first frame update
+    public float mDamageTimes;
     public GameObject mProjectile = null;
     public float mShootRate;
     public float mShootCoolDown;

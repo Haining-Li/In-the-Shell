@@ -90,28 +90,51 @@ public class MonoAI : HumanoidController
                 mBehaviorHandler.Idle();
             }
         }
-        
+
     }
 
+    private float mWanderTime;
+    private Vector3 bias = Vector3.zero;
     void Attack()
     {
+        float radius = GetComponentInChildren<CircleCollider2D>().radius * transform.localScale.y;
         if (mSightHandler.isInSight)
         {
             Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
             mBehaviorHandler.mFacingDirection = relaPos;
-            if (relaPos.magnitude > 60f)
+            /*
+            if (relaPos.magnitude > 0.7f * radius)
+            {
+                // Debug.Log(relaPos.magnitude + " Greater Than " + 0.7f * radius);
                 mBehaviorHandler.mMoveDirection = relaPos;
-            else if (relaPos.magnitude < 40f) {
+            }
+            else if (relaPos.magnitude < 0.3f * radius)
+            {
+                // Debug.Log(relaPos.magnitude + " Lesser Than " + 0.3f * radius);
                 mBehaviorHandler.mMoveDirection = -relaPos;
             }
-            else {
-                int sign = Random.Range(-1, 1);
-                Quaternion rotation = Quaternion.Euler(0, 0, 90);
+            else
+            {
 
-                mBehaviorHandler.mMoveDirection = sign * (rotation * relaPos);
             }
+            */
+            float rate = relaPos.magnitude / radius;
+            rate = (rate - 0.5f) * 2;
+            mBehaviorHandler.mMoveDirection = rate * relaPos + bias;
+
+
+            if (Time.time - mWanderTime > 0.8f)
+            {
+                mWanderTime = Time.time;
+                float sign = Random.Range(-1f, 1f);
+                bias = Quaternion.Euler(0, 0, 90) * (sign * relaPos);
+            }
+
+            
+
             mBehaviorHandler.Move();
             mBehaviorHandler.Shoot();
         }
     }
+
 }

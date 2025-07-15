@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0976e5ea8bc9b4c9e58607dfa6aa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSpeed: 50
-  mDamage: 10
+  mSpeed: 100
+  mDamage: 15
   Hero: 0
   Enemy: 1
   mFragmentCount: 1

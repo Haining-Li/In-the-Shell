@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 4073718180951408386}
   - component: {fileID: 7022982324101058417}
   - component: {fileID: 2097131542973083144}
-  - component: {fileID: 970910286694728440}
   - component: {fileID: 4086346260997041372}
+  - component: {fileID: 1802119316345582907}
+  - component: {fileID: 661267932335878001}
   m_Layer: 30
-  m_Name: BlueOrb 1
+  m_Name: FragmentingOrb
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,22 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &970910286694728440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269736233084538591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c1addf3270e33459fa8c8b62f7d166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSpeed: 50
-  mDamage: 10
-  Hero: 0
-  Enemy: 1
 --- !u!58 &4086346260997041372
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +144,49 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.03}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!50 &1802119316345582907
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269736233084538591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.01
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &661267932335878001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269736233084538591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0976e5ea8bc9b4c9e58607dfa6aa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSpeed: 100
+  mDamage: 15
+  Hero: 0
+  Enemy: 1
+  mFragmentCount: 1
+  mFragmentNum: 5
+  mSubDamageRate: 0.5

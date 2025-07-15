@@ -13,6 +13,7 @@ public class CPUPackUI : MonoBehaviour
     void Start()
     {
         HeroBehavior = GameObject.Find("Hero").GetComponent<HeroBehavior>();
+        Hero = GameObject.Find("Hero").GetComponent<HeroCollide>();
         imageComponent = GetComponent<Image>();
         mAnimator = GetComponent<Animator>();
     }

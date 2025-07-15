@@ -13,7 +13,7 @@ public class SceneTransitionTrigger : MonoBehaviour
         {
             // 加载目标场景
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentSceneIndex + 1);
+            SceneManager.LoadScene((currentSceneIndex + 1) % 5);
             
         }
     }

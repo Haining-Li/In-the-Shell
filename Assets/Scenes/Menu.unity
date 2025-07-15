@@ -2112,7 +2112,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -1.2230225, y: 477.19}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &379276566
 MonoBehaviour:
@@ -2875,9 +2875,9 @@ RectTransform:
   m_Father: {fileID: 521622484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &710618695
 MonoBehaviour:
@@ -3385,9 +3385,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379276565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 290.8885, y: -238.595}
   m_SizeDelta: {x: 581.777, y: 477.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941214906
@@ -4074,8 +4074,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796981033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.3713196}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5146,7 +5146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106442216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5601,6 +5601,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 840693764894818632, guid: a2b32ca4ebe82f340bbf4998a1b6dde5, type: 3}
+      propertyPath: m_text
+      value: 'BGM Volume
+
+
+
+        SFX Volume'
+      objectReference: {fileID: 0}
     - target: {fileID: 907365545369394450, guid: a2b32ca4ebe82f340bbf4998a1b6dde5, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
@@ -5805,6 +5813,10 @@ PrefabInstance:
     - target: {fileID: 3639985156245075238, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519553263401641566, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5519553263401641566, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
       propertyPath: m_Volume

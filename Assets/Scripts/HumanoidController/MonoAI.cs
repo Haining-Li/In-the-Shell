@@ -32,6 +32,7 @@ public class MonoAI : HumanoidController
         switch (mStatus)
         {
             case Status.Idle:
+                // Debug.Log(mSightHandler.isInSight);
                 mBehaviorHandler.Idle();
                 if (mSightHandler.isInSight)
                 {
@@ -40,6 +41,7 @@ public class MonoAI : HumanoidController
                 }
                 break;
             case Status.Alert:
+                // Debug.Log(mSightHandler.isInSight);
                 if (mSightHandler.isInSight)
                 {
                     mStatus = Status.Attack;
@@ -56,6 +58,7 @@ public class MonoAI : HumanoidController
                 }
                 break;
             case Status.Attack:
+                // Debug.Log(mSightHandler.isInSight);
                 Attack();
                 if (!mSightHandler.isInSight)
                 {

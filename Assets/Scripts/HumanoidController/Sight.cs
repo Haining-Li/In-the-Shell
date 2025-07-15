@@ -33,6 +33,7 @@ public class Sight : MonoBehaviour
         GameObject e = collision.gameObject;
         if (e.CompareTag("Player")&& !e.GetComponent<HeroBehavior>().IsHiding)
         {
+            // Debug.Log("Find The Hero");
             mAlert = true;
             mPos = e.transform.localPosition;
         }
@@ -43,12 +44,19 @@ public class Sight : MonoBehaviour
         GameObject e = other.gameObject;
         if (e.CompareTag("Player") && !e.GetComponent<HeroBehavior>().IsHiding)
         {
-            mAlert = true;
-            mPos = e.transform.localPosition;
-        }
-        else
-        {
-            mAlert = false;
+            if (!e.GetComponent<HeroBehavior>().IsHiding)
+            {
+                // Debug.Log("Still in Sight");
+                mAlert = true;
+                mPos = e.transform.localPosition;
+            }
+            else
+            {
+                // Debug.Log("What");
+                Debug.Log(e.name);
+                mAlert = false;
+            }
+            
         }
     }
 
@@ -57,6 +65,7 @@ public class Sight : MonoBehaviour
         GameObject e = collision.gameObject;
         if (e.CompareTag("Player"))
         {
+            // Debug.Log("Cnnt See");
             mAlert = false;
             mPos = e.transform.localPosition;
         }

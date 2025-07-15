@@ -12,6 +12,7 @@ public class HidePackUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Hero = GameObject.Find("Hero").GetComponent<HeroCollide>();
         HeroBehavior = GameObject.Find("Hero").GetComponent<HeroBehavior>();
         imageComponent = GetComponent<Image>();
         mAnimator = GetComponent<Animator>();

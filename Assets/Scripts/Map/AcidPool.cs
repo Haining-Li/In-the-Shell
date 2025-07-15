@@ -40,7 +40,7 @@ public class AcidPool : MonoBehaviour
         {
             if (Time.time - mTimer > HurtRate)
             {
-                Debug.Log("Sour");
+                // Debug.Log("Sour");
                 e.GetComponent<HumanoidStatus>().GetHurt(AcidDamage);
                 mTimer = Time.time;
             }

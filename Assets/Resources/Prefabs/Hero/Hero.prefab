@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4350502379578877612}
   - component: {fileID: -8506090089292379377}
   - component: {fileID: 8198372288291100373}
+  - component: {fileID: 267970391454676998}
   m_Layer: 27
   m_Name: Hero
   m_TagString: Player
@@ -323,6 +324,7 @@ MonoBehaviour:
   canHide: 1
   slowMotionFactor: 0.5
   IsInvincible: 0
+  mIsHiding: 0
   HeroFirePoint: {x: 0, y: 0, z: 0}
   mWeaponHandler: {fileID: -2563416803853829471, guid: 7d170b3d4cb2247419f4b7fa09f0c7b0, type: 3}
 --- !u!114 &-8506090089292379377
@@ -352,6 +354,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 1
+--- !u!114 &267970391454676998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729700831421871409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb23e359f413ee4da5030d169826d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultWeaponType: 1
+  defaultBulletType: 1
 --- !u!1 &7576403362146034510
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +572,10 @@ PrefabInstance:
       propertyPath: mShootRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: -2563416803853829471, guid: 7d170b3d4cb2247419f4b7fa09f0c7b0, type: 3}
+      propertyPath: mProjectile
+      value: 
+      objectReference: {fileID: 308919726504299372, guid: 1723fb17d097c9b43b9b863cd5f48d1d, type: 3}
     - target: {fileID: 6157537616390371938, guid: 7d170b3d4cb2247419f4b7fa09f0c7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.048

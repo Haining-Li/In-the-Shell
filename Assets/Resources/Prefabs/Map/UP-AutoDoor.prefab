@@ -117,14 +117,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7380484053859202346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.0023910378, w: 0.99999714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -44.9, y: -52.7, z: 0.33263332}
   m_LocalScale: {x: 45, y: 45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4851534408029478864}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &791189057557951761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   openingState1: {fileID: -1739119998, guid: f3a2002eddc5e4d4abdb41f1ae2cf10f, type: 3}
   openingState2: {fileID: -689270649, guid: f3a2002eddc5e4d4abdb41f1ae2cf10f, type: 3}
   openState: {fileID: -1478268677, guid: f3a2002eddc5e4d4abdb41f1ae2cf10f, type: 3}
-  activationDelay: 0.5
-  openingInterval: 0.3
+  activationDelay: 0.1
+  openingInterval: 0.1
   isCombatRoomDoor: 0
   isStoryRoomDoor: 0
   enemyPrefabs: []
@@ -236,7 +236,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.14035074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.125}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.64, y: 0.32}
     newSize: {x: 0.64, y: 0.32}
     adaptiveTilingThreshold: 0.5

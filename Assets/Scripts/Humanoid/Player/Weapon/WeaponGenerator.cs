@@ -6,6 +6,9 @@ using UnityEngine;
 public class WeaponGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Default Settings")]
+    public int defaultWeaponType = 1; // 默认武器1
+    public int defaultBulletType = 1; // 默认弹药1
     void Start()
     {
 
@@ -46,26 +49,29 @@ public class WeaponGenerator : MonoBehaviour
 
     public GameObject GunGenerator()
     {
-        if (gunType == 0)
-            gunType = Random.Range(1, 4);
-        if (bulletType == 0)
-            bulletType = Random.Range(1, 4);
-        GameObject gun = gunType switch
+        int finalGunType = gunType == 0 ? defaultWeaponType : gunType;
+        int finalBulletType = bulletType == 0 ? defaultBulletType : bulletType;
+    
+        GameObject gun = finalGunType switch
         {
-            1 => Instantiate(Resources.Load("Prefabs/Player/Weapon/Pistol") as GameObject),
-            2 => Instantiate(Resources.Load("Prefabs/Player/Weapon/SubmachineGun") as GameObject),
-            3 => Instantiate(Resources.Load("Prefabs/Player/Weapon/Shotgun") as GameObject),
-            4 => Instantiate(Resources.Load("Prefabs/Player/Weapon/SniperRifle") as GameObject),
+            1 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/Pistol") as GameObject),
+            2 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/SubmachineGun") as GameObject),
+            3 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/Shotgun") as GameObject),
+            4 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/SniperRifle") as GameObject),
             _ => null
         };
-        gun.GetComponent<Weapon>().mProjectile = bulletType switch
+    
+        if (gun != null)
         {
-            1 => Resources.Load("Prefabs/Projectile/BlueLaser") as GameObject,
-            2 => Resources.Load("Prefabs/Projectile/BlueOrb") as GameObject,
-            3 => Resources.Load("Prefabs/Projectile/ReflectableLaser") as GameObject,
-            4 => Resources.Load("Prefabs/Projectile/FragmentingOrb") as GameObject,
-            _ => null
-        };
+            gun.GetComponent<Weapon>().mProjectile = finalBulletType switch
+            {
+                1 => Resources.Load("Prefabs/Projectile/BlueLaser") as GameObject,
+                2 => Resources.Load("Prefabs/Projectile/ReflectableLaser") as GameObject,
+                3 => Resources.Load("Prefabs/Projectile/FragmentingOrb") as GameObject,
+                _ => null
+            };
+        }
+    
         return gun;
     }
     

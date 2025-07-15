@@ -194,6 +194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 200
-  mDamage: 10
+  mDamage: 20
   Hero: 0
   Enemy: 1

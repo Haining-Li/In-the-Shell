@@ -36,7 +36,7 @@ public class HeroStatus : HumanoidStatus
     {
         audioController.PlaySfx(audioController.HeroHurt);
         base.GetHurt(damage);
-        // Debug.Log(mHealthPoint);
+        Debug.Log(damage + " " + mHealthPoint);
         if (mHealthPoint <= 0 && !mIsDying)
         {
             mIsDying = true;

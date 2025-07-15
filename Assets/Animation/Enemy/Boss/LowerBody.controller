@@ -66,10 +66,10 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5139307082867085457}
-    m_Position: {x: 438.79965, y: 356.29492, z: 0}
+    m_Position: {x: 290, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8290221628453998978}
-    m_Position: {x: 611.20044, y: 250.34021, z: 0}
+    m_Position: {x: 550, y: 130, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -91,6 +91,12 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: Speed
     m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Shoot
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

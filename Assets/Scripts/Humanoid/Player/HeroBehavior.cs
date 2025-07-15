@@ -23,7 +23,7 @@ public class HeroBehavior : HumanoidBehavior
     private float hidingDuration = 10f;
     private float hidingCooldown = 60f;
 
-    private bool mIsHiding = false;
+    public bool mIsHiding = false;
     private bool mIsOnHidingCoolDown = false;
     float mHideTimer = 0f;
     float mDashTimer = 0f;
@@ -37,6 +37,7 @@ public class HeroBehavior : HumanoidBehavior
     AudioController audioController;
 
     private Rigidbody2D rb2D;
+    public Vector3 HeroFirePoint;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class HeroBehavior : HumanoidBehavior
         mHideTimer = Time.unscaledTime;
         rb2D = GetComponent<Rigidbody2D>();
         audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+        HeroFirePoint = new Vector3 (8f, 8f, 0f);
     }
     public void ActivateTimeSlow()
     {
@@ -150,12 +152,6 @@ public class HeroBehavior : HumanoidBehavior
     public override void Shoot()
     {
         mAnimator.SetTrigger("Shoot");
-        if (Time.unscaledTime - mShootTimer > mShootRate)
-        {
-            audioController.PlaySfx(audioController.HeroShoot);
-            base.Shoot();
-            mShootTimer = Time.unscaledTime;
-        }
         mWeaponHandler.mFirePoint = mFirePoint;
         mWeaponHandler.mTowards = mTowards;
         mWeaponHandler.Shoot();

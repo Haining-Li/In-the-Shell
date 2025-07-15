@@ -46,6 +46,10 @@ public class Sight : MonoBehaviour
             mAlert = true;
             mPos = e.transform.localPosition;
         }
+        else
+        {
+            mAlert = false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)

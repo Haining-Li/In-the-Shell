@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class ComputerInteraction : MonoBehaviour
 {
+    [Header("UI References")]
     public GameObject textDisplayPanel; // 在Unity编辑器中分配的UI面板
-    public Text displayText; // 在Unity编辑器中分配的Text组件
     
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -40,7 +40,7 @@ public class ComputerInteraction : MonoBehaviour
     private void ToggleInteraction()
     {
         isInteracting = !isInteracting;
-        
+
         if (isInteracting)
         {
             // 开始交互：显示文本面板

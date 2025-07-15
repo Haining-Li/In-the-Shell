@@ -13,30 +13,31 @@ public class PatrolEnemyAI : HumanoidController
     private List<Vector3> waypoints = new List<Vector3>();
     private float statusTimer = 0f;
     private int currentWaypointIndex = -1;
-    private float shootingTimer = 0f; // ÉùÃ÷Éä»÷¼ÆÊ±Æ÷
+    private float shootingTimer = 0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     private bool isShooting = false;
     private float lastCollisionTime = 0f;
     private bool isFacingRight = true;
-    private const float COLLISION_COOLDOWN = 1f; // Åö×²ÀäÈ´Ê±¼ä£¬±ÜÃâÆµ·±ÇÐ»»º½µã
+    private const float COLLISION_COOLDOWN = 1f; // ï¿½ï¿½×²ï¿½ï¿½È´Ê±ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [SerializeField] private float patrolRange = 10f;
     [SerializeField] private float shootingDuration = 2f;
     [SerializeField] private float waypointReachThreshold = 0.5f;
     [SerializeField] private int fixedSeed = 0;
     [SerializeField] private bool useFixedSeed = false;
+    [SerializeField] private Vector2[] WayPoints = null;
 
     void Start()
     {
         Init();
-        // ÉèÖÃËæ»úÖÖ×Ó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!useFixedSeed)
         {
-            // Ê¹ÓÃµ±Ç°Ê±¼ä×÷ÎªËæ»úÖÖ×Ó£¬È·±£Ã¿´ÎÓÎÏ·ÔËÐÐ½á¹û²»Í¬
+            // Ê¹ï¿½Ãµï¿½Ç°Ê±ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½È·ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½Í¬
             Random.InitState((int)System.DateTime.Now.Ticks);
         }
         else
         {
-            // Ê¹ÓÃ¹Ì¶¨ÖÖ×Ó£¨ÓÃÓÚ²âÊÔ£¬È·±£½á¹û¿ÉÖØÏÖ£©
+            // Ê¹ï¿½Ã¹Ì¶ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Ô£ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½
             Random.InitState(fixedSeed);
         }
 
@@ -48,19 +49,19 @@ public class PatrolEnemyAI : HumanoidController
         Vector3 relativePosition = mSightHandler.mTargetPosition - transform.position;
         mBehaviorHandler.mFacingDirection = relativePosition.normalized;
 
-        // ¸üÐÂÃæÏò·½Ïò
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (relativePosition.x > 0) isFacingRight = true;
         if (relativePosition.x < 0) isFacingRight = false;
         GetComponent<SpriteRenderer>().flipX = !isFacingRight;
 
-        // ×´Ì¬×ª»»Âß¼­
+        // ×´Ì¬×ªï¿½ï¿½ï¿½ß¼ï¿½
         if (mSightHandler.isInSight && currentStatus == Status.Idle)
         {
             mBehaviorHandler.Activate(); 
             currentStatus = Status.Patrolling;
         }
 
-        // ×´Ì¬ÐÐÎªÂß¼­
+        // ×´Ì¬ï¿½ï¿½Îªï¿½ß¼ï¿½
         switch (currentStatus)
         {
             case Status.Idle:
@@ -74,7 +75,7 @@ public class PatrolEnemyAI : HumanoidController
 
     private void InitializeWaypoints()
     {
-        // Ëæ»úÉú³ÉËÄ¸öº½µã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < 4; i++)
         {
             Vector3 randomOffset = new Vector3(
@@ -85,13 +86,13 @@ public class PatrolEnemyAI : HumanoidController
             waypoints.Add(transform.position + randomOffset);
         }
 
-        // Ñ¡ÔñµÚÒ»¸öº½µã
+        // Ñ¡ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         SelectNextWaypoint();
     }
 
     private void SelectNextWaypoint()
     {
-        // Ñ¡ÔñÓëµ±Ç°º½µã²»Í¬µÄÏÂÒ»¸öËæ»úº½µã
+        // Ñ¡ï¿½ï¿½ï¿½ëµ±Ç°ï¿½ï¿½ï¿½ã²»Í¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < waypoints.Count; i++)
         {
@@ -127,11 +128,11 @@ public class PatrolEnemyAI : HumanoidController
 
         if (!isShooting)
         {
-            // ÒÆ¶¯µ½º½µã
+            // ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             mBehaviorHandler.Move();
             mBehaviorHandler.mMoveDirection = directionToWaypoint.normalized;
 
-            // ¼ì²éÊÇ·ñµ½´ïº½µã
+            // ï¿½ï¿½ï¿½ï¿½Ç·ñµ½´ïº½ï¿½ï¿½
             if (directionToWaypoint.magnitude < waypointReachThreshold)
             {
                 isShooting = true;
@@ -144,10 +145,10 @@ public class PatrolEnemyAI : HumanoidController
         {
             Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
             mBehaviorHandler.mFacingDirection = relaPos;
-            // Éä»÷×´Ì¬
+            // ï¿½ï¿½ï¿½×´Ì¬
             mBehaviorHandler.Shoot();
 
-            // Éä»÷³ÖÐøÊ±¼ä½áÊøºóÑ¡ÔñÏÂÒ»¸öº½µã
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (Time.time - shootingTimer > shootingDuration)
             {
                 SelectNextWaypoint();
@@ -155,18 +156,18 @@ public class PatrolEnemyAI : HumanoidController
         }
     }
 
-    // ÐÂÔö£ºÅö×²¼ì²âÂß¼­
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ¼ì²éÊÇ·ñÓëWall±êÇ©µÄÎïÌåÅö×²£¬²¢ÇÒÅö×²ÀäÈ´Ê±¼äÒÑ¹ý
+        // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Wallï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½È´Ê±ï¿½ï¿½ï¿½Ñ¹ï¿½
         if (collision.gameObject.CompareTag("Wall") && Time.time - lastCollisionTime > COLLISION_COOLDOWN)
         {
             Debug.Log("Enemy hit wall - switching waypoint");
 
-            // ¼ÇÂ¼Åö×²Ê±¼ä
+            // ï¿½ï¿½Â¼ï¿½ï¿½×²Ê±ï¿½ï¿½
             lastCollisionTime = Time.time;
 
-            // Èç¹û´¦ÓÚÑ²Âß×´Ì¬£¬ÇÐ»»µ½ÏÂÒ»¸öº½µã
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (currentStatus == Status.Patrolling)
             {
                 SelectNextWaypoint();

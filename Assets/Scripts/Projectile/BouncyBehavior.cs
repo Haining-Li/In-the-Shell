@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class BouncyBehavior : ProjectileBehavior
 {
     public int mCrashCount = 2;
+    private int mStayCount = 0;
     void Awake()
     {
         mStatusTimer = Time.time;
@@ -15,15 +17,16 @@ public class BouncyBehavior : ProjectileBehavior
     void Start()
     {
         Init();
+        mStayCount = mCrashCount;
         // 提前忽略所有敌人的碰撞（适用于已知敌人列表的情况）
         GameObject[] ignores = null;
         if (!Hero)
             ignores = GameObject.FindGameObjectsWithTag("Player");
         if (!Enemy)
             ignores = GameObject.FindGameObjectsWithTag("Enemy");
-        
+
         Collider2D bulletCollider = GetComponent<Collider2D>();
-    
+
         foreach (var enemy in ignores)
         {
             Collider2D enemyCollider = enemy.GetComponent<Collider2D>();
@@ -49,6 +52,7 @@ public class BouncyBehavior : ProjectileBehavior
                 Destroy();
                 break;
         }
+
     }
 
     public override void Move()
@@ -84,7 +88,7 @@ public class BouncyBehavior : ProjectileBehavior
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;
-        
+
         if ((Hero && e.layer == LayerMask.NameToLayer("Hero")) || (Enemy && e.layer == LayerMask.NameToLayer("Enemy")))
         {
             if (mStatus == ProjectileStatus.Flying)
@@ -92,7 +96,7 @@ public class BouncyBehavior : ProjectileBehavior
                 mStatusTimer = Time.time;
                 mStatus = ProjectileStatus.Crash;
                 mAnimator.SetTrigger("Destroy");
-                if(e.GetComponent<HumanoidStatus>().mHealthPoint > 0)
+                if (e.GetComponent<HumanoidStatus>().mHealthPoint > 0)
                 {
                     e.GetComponent<HumanoidStatus>().GetHurt(mDamage);
                 }
@@ -100,19 +104,19 @@ public class BouncyBehavior : ProjectileBehavior
         }
         else if (e.layer == LayerMask.NameToLayer("Default"))
         {
-            Debug.Log("Enter" + mCrashCount);
+            // Debug.Log("Enter" + mCrashCount);
             if (mStatus == ProjectileStatus.Flying)
             {
                 mStatusTimer = Time.time;
                 if (mCrashCount > 0)
                 {
                     Vector3 normal = collision.contacts[0].normal;
-                    Vector3 inCommingDirection = mRigidbody.velocity.normalized;
-                    Vector3 reflectDirection = Vector3.Reflect(inCommingDirection, normal);
+                    Vector3 reflectDirection = Vector3.Reflect(transform.right, normal);
                     float angle = Mathf.Atan2(reflectDirection.y, reflectDirection.x) - Mathf.Atan2(transform.right.y, transform.right.x);
                     angle *= Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Euler(0, 0, angle);
+                    transform.right = Quaternion.Euler(0, 0, angle) * transform.right;
                     mCrashCount--;
+                    mStayCount = mCrashCount;
                 }
                 else
                 {
@@ -123,11 +127,27 @@ public class BouncyBehavior : ProjectileBehavior
         }
     }
 
-
-    private void OnCollisionStay2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Stay" + mCrashCount);
-        mCrashCount--;
+        GameObject e = collision.gameObject;
+        if (e.layer == LayerMask.NameToLayer("Default"))
+        {
+            // Debug.Log("Enter" + mCrashCount);
+            if (mStatus == ProjectileStatus.Flying)
+            {
+                mStatusTimer = Time.time;
+                if (mStayCount >= 0)
+                {
+                    mStayCount--;
+                }
+                else
+                {
+                    mStatus = ProjectileStatus.Crash;
+                    mAnimator.SetTrigger("Destroy");
+                }
+            }
+        }
     }
+
 
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class DoorController : MonoBehaviour
@@ -25,6 +26,14 @@ public class DoorController : MonoBehaviour
     public bool isCombatRoomDoor = false;
     [Tooltip("是否剧情房间的入口门")]
     public bool isStoryRoomDoor = false;
+
+    [Header("Enemy Spawn Settings")]
+    [Tooltip("Enemy prefabs to spawn when door opens")]
+    public List<GameObject> enemyPrefabs;
+    [Tooltip("Positions to spawn enemies (world coordinates)")]
+    public List<Vector2> spawnPositions;
+    [Tooltip("Delay after door opens to spawn enemies")]
+    public float spawnDelay = 0.5f;
 
     private Collider2D doorCollider;
     private SpriteRenderer spriteRenderer;
@@ -90,6 +99,27 @@ public class DoorController : MonoBehaviour
             else if (isStoryRoomDoor)
             {
                 combatTimer.StopTimer();
+            }
+        }
+
+        // 新增：开始刷怪协程
+        StartCoroutine(SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        // 等待指定的延迟时间
+        yield return new WaitForSeconds(spawnDelay);
+
+        // 确保敌人预制件和生成点数量匹配
+        int spawnCount = Mathf.Min(enemyPrefabs.Count, spawnPositions.Count);
+
+        // 生成敌人
+        for (int i = 0; i < spawnCount; i++)
+        {
+            if (enemyPrefabs[i] != null)
+            {
+                Instantiate(enemyPrefabs[i], spawnPositions[i], Quaternion.identity);
             }
         }
     }

@@ -1447,7 +1447,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -15820,6 +15820,7 @@ GameObject:
   - component: {fileID: 5910662559001212940}
   - component: {fileID: 3768896595573439530}
   - component: {fileID: 6022713532835221482}
+  - component: {fileID: 437247369545900375}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -19432,7 +19433,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -19504,6 +19505,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!66 &437247369545900375
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719016436469271650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 3719016436469271650}
 --- !u!1 &3778123506032922547
 GameObject:
   m_ObjectHideFlags: 0
@@ -21928,7 +21972,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -25361,6 +25405,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[100].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 2463291614735673139, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3193182970089291466, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_LocalScale.x
       value: 15
@@ -25371,11 +25419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3193182970089291466, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -227.6
       objectReference: {fileID: 0}
     - target: {fileID: 3193182970089291466, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 46.3
       objectReference: {fileID: 0}
     - target: {fileID: 3193182970089291466, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45327,7 +45375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377489099981732647, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_Name
-      value: Map1 1
+      value: Map1
       objectReference: {fileID: 0}
     - target: {fileID: 6480000866240357485, guid: e492ee3aea02ac049b2b58fe25373383, type: 3}
       propertyPath: m_Tiles.Array.size
@@ -48208,6 +48256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.274
       objectReference: {fileID: 0}
+    - target: {fileID: 791189057557951761, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
       propertyPath: isCombatRoomDoor
       value: 1
@@ -48300,6 +48352,10 @@ PrefabInstance:
     - target: {fileID: 619908716789810647, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.274
+      objectReference: {fileID: 0}
+    - target: {fileID: 791189057557951761, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
       propertyPath: isStoryRoomDoor

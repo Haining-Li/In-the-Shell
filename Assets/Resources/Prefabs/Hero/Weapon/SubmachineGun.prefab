@@ -49,6 +49,6 @@ MonoBehaviour:
   mTowards: {x: 0, y: 0, z: 0}
   mDamageTimes: 0.5
   mProjectile: {fileID: 0}
-  mShootRate: 0.1
-  mShootCoolDown: 0.5
+  mShootRate: 0.5
+  mShootCoolDown: 0.1
   mBurstNum: 3

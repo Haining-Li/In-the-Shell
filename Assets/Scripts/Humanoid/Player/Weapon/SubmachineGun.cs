@@ -16,11 +16,11 @@ public class SubmachineGun : Weapon
     public override void Shoot()
     {
         
-        if (Time.time - mCoolDownTimer > mShootCoolDown)
+        if (Time.time - mCoolDownTimer > mShootRate)
         {
             if (mBurstCount < mBurstNum)
             {
-                if (Time.time - mShootTimer > mShootRate)
+                if (Time.time - mShootTimer > mShootCoolDown)
                 {
                     mShootTimer = Time.time;
                     base.Shoot();

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.UIElements.Experimental;
 
 public class BossAI : HumanoidController
@@ -16,25 +15,25 @@ public class BossAI : HumanoidController
         Init();
     }
 
-    // Boss×´Ì¬Ã¶¾Ù
+    // Boss×´Ì¬Ã¶ï¿½ï¿½
     enum Status
     {
-        Idle,       // ¾²Ö¹×´Ì¬
-        Chasing,    // ×·Öð×´Ì¬
-        Rampage     // ±©×ß×´Ì¬£¨ÑªÁ¿µÍÓÚ50%£©
+        Idle,       // ï¿½ï¿½Ö¹×´Ì¬
+        Chasing,    // ×·ï¿½ï¿½×´Ì¬
+        Rampage     // ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½50%ï¿½ï¿½
     }
     private Status mStatus = Status.Idle;
 
-    // ×´Ì¬¼ÆÊ±Æ÷
+    // ×´Ì¬ï¿½ï¿½Ê±ï¿½ï¿½
     private float mShootPatternTimer = 0f;
-    private int mCurrentShootMode = 1; // µ±Ç°Éä»÷Ä£Ê½£¨1,2,3£©
+    private int mCurrentShootMode = 1; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½1,2,3ï¿½ï¿½
 
-    // ÅäÖÃ²ÎÊý
-    public float chaseDuration = 5f;      // Õý³£×´Ì¬×·ÖðÊ±¼ä
-    public float rampageChaseDuration = 3f; // ±©×ß×´Ì¬×·ÖðÊ±¼ä
-    public float shootDuration = 15f;      // Éä»÷³ÖÐøÊ±¼ä
+    // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
+    public float chaseDuration = 5f;      // ï¿½ï¿½ï¿½ï¿½×´Ì¬×·ï¿½ï¿½Ê±ï¿½ï¿½
+    public float rampageChaseDuration = 3f; // ï¿½ï¿½ï¿½ï¿½×´Ì¬×·ï¿½ï¿½Ê±ï¿½ï¿½
+    public float shootDuration = 15f;      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
-    public bool isRampageMode = false;   // ÊÇ·ñ´¦ÓÚ±©×ßÄ£Ê½
+    public bool isRampageMode = false;   // ï¿½Ç·ï¿½ï¿½Ú±ï¿½ï¿½ï¿½Ä£Ê½
     public bool isChangingMode = false;
 
     void Update()
@@ -43,18 +42,18 @@ public class BossAI : HumanoidController
          {         
             mStatus = Status.Idle;
             isChangingMode = true;
-            Debug.Log("Boss¿ªÊ¼½øÈë±©×ßÄ£Ê½£¡");
+            Debug.Log("Bossï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ë±©ï¿½ï¿½Ä£Ê½ï¿½ï¿½");
          }
 
         if(mBossStatus.mHealthPoint <mBossStatus.mMaxHealthPoint && isChangingMode)
         {
             mBossStatus.Recover(20);
-            Debug.Log("BossÕýÔÚ½øÈë±©×ßÄ£Ê½£¡");
+            Debug.Log("Bossï¿½ï¿½ï¿½Ú½ï¿½ï¿½ë±©ï¿½ï¿½Ä£Ê½ï¿½ï¿½");
         }
         if (mBossStatus.mHealthPoint == mBossStatus.mMaxHealthPoint && isChangingMode)
         {
             isChangingMode = false;
-            Debug.Log("Boss³É¹¦½øÈë±©×ßÄ£Ê½£¡");
+            Debug.Log("Bossï¿½É¹ï¿½ï¿½ï¿½ï¿½ë±©ï¿½ï¿½Ä£Ê½ï¿½ï¿½");
             mStatus = Status.Rampage;
             isRampageMode=true;
         }
@@ -88,12 +87,12 @@ public class BossAI : HumanoidController
     {
         mBehaviorHandler.Idle();
 
-        // Èç¹û·¢ÏÖÍæ¼Ò£¬ÇÐ»»µ½×·Öð×´Ì¬
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ð»ï¿½ï¿½ï¿½×·ï¿½ï¿½×´Ì¬
         if (mSightHandler.isInSight && !isChangingMode)
         {
             mStatus = Status.Chasing;
             mStatusTimer = Time.time;
-            Debug.Log("Boss·¢ÏÖÍæ¼Ò£¬½øÈë×·Öð×´Ì¬");
+            Debug.Log("Bossï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½×´Ì¬");
         }
     }
 
@@ -101,11 +100,11 @@ public class BossAI : HumanoidController
     {
         float currentChaseDuration = isRampageMode ? rampageChaseDuration : chaseDuration;
 
-        // ×·Öð½×¶Î
+        // ×·ï¿½ï¿½×¶ï¿½
         if (Time.time - mStatusTimer < currentChaseDuration)
         {
-            // ×·ÖðÍæ¼Ò
-            if (relaPos.magnitude > 20f) // ±£³ÖÒ»¶¨¾àÀë
+            // ×·ï¿½ï¿½ï¿½ï¿½ï¿½
+            if (relaPos.magnitude > 20f) // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
                 mBehaviorHandler.Move();
             }
@@ -114,72 +113,55 @@ public class BossAI : HumanoidController
                 mBehaviorHandler.Idle();
             }
         }
-        // Éä»÷½×¶Î
+        // ï¿½ï¿½ï¿½ï¿½×¶ï¿½
         else if (Time.time - mStatusTimer < currentChaseDuration + shootDuration)
         {
-            // Í£Ö¹ÒÆ¶¯£¬¿ªÊ¼Éä»÷
+            // Í£Ö¹ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½
             mBehaviorHandler.Idle();
 
-            // ÉèÖÃÉä»÷Ä£Ê½
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
             BossBehavior bossBehavior = mBehaviorHandler as BossBehavior;
             bossBehavior.mShootMode = mCurrentShootMode;
 
-            // Ö´ÐÐÉä»÷
+            // Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
             mBehaviorHandler.Shoot();
 
-            // ¸üÐÂÉä»÷Ä£Ê½¼ÆÊ±Æ÷
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½Ê±ï¿½ï¿½
             if (Time.time - mShootPatternTimer > shootDuration / 3f)
             {
-                mCurrentShootMode = mCurrentShootMode % 3 + 1; // Ñ­»·1,2,3
+                mCurrentShootMode = mCurrentShootMode % 3 + 1; // Ñ­ï¿½ï¿½1,2,3
                 mShootPatternTimer = Time.time;
-                Debug.Log("ÇÐ»»Éä»÷Ä£Ê½: " + mCurrentShootMode);
+                Debug.Log("ï¿½Ð»ï¿½ï¿½ï¿½ï¿½Ä£Ê½: " + mCurrentShootMode);
             }
         }
-        // »Øµ½×·Öð½×¶Î
+        // ï¿½Øµï¿½×·ï¿½ï¿½×¶ï¿½
         else
         {
             mStatusTimer = Time.time;
-            mCurrentShootMode = 1; // ÖØÖÃÉä»÷Ä£Ê½
+            mCurrentShootMode = 1; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
         }
     }
 
     private void HandleRampageState(Vector3 relaPos)
     {
-        // ±©×ß×´Ì¬ÏÂ³ÖÐøÒÆ¶¯²¢Éä»÷
+        // ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Â³ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (relaPos.magnitude > 2f)
         {
             mBehaviorHandler.Move();
         }
 
-        // ÉèÖÃÉä»÷Ä£Ê½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
         BossBehavior bossBehavior = mBehaviorHandler as BossBehavior;
         bossBehavior.mShootMode = mCurrentShootMode;
-        // Ö´ÐÐÉä»÷
+        // Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
         mBehaviorHandler.Shoot();
 
-        // ¸üÐÂÉä»÷Ä£Ê½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
         if (Time.time - mShootPatternTimer > shootDuration / 3f)
         {
-            mCurrentShootMode = mCurrentShootMode % 3 + 1; // Ñ­»·1,2,3
+            mCurrentShootMode = mCurrentShootMode % 3 + 1; // Ñ­ï¿½ï¿½1,2,3
             mShootPatternTimer = Time.time;
-            Debug.Log("±©×ßÄ£Ê½ÏÂÇÐ»»Éä»÷Ä£Ê½: " + mCurrentShootMode);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½Ä£Ê½: " + mCurrentShootMode);
         }
     }
 }
-=======
-
-public class BossAI : HumanoidController
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        mBehaviorHandler = GetComponent<HumanoidBehavior>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
->>>>>>> aaaf91160c78540ef04847ee0c3cc19fc9ba132d

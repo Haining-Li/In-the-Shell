@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
     {
 
     }
-    
+
     virtual public void Shoot()
     {
         GameObject e = Instantiate(mProjectile);
@@ -36,5 +36,8 @@ public class Weapon : MonoBehaviour
         e.transform.localPosition = parentObject.TransformPoint(transform.localPosition);
         float angle = Mathf.Atan2(mTowards.y, mTowards.x) * Mathf.Rad2Deg;
         e.transform.rotation = Quaternion.Euler(0, 0, angle);
+        int damage = e.GetComponent<ProjectileBehavior>().mDamage;
+        damage = (int)(mDamageTimes * damage);
+        e.GetComponent<ProjectileBehavior>().mDamage = damage;
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1119590108476702261}
   - component: {fileID: 283000033444938482}
   - component: {fileID: -3828776108768699061}
-  - component: {fileID: 6649120348110938885}
+  - component: {fileID: 3813991582260259528}
   m_Layer: 30
   m_Name: ReflectableLaser
   m_TagString: PlayerBullet
@@ -168,10 +168,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000008940697, y: -0.014804684}
+  m_Offset: {x: -0.11478782, y: 0.00027944148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.62, y: 0.485}
     oldSize: {x: 0.96, y: 0.96}
     newSize: {x: 0.96, y: 0.96}
     adaptiveTilingThreshold: 0.5
@@ -179,9 +179,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31794566, y: 0.11220808}
+  m_Size: {x: 0.3150882, y: 0.105808794}
   m_EdgeRadius: 0
---- !u!114 &6649120348110938885
+--- !u!114 &3813991582260259528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,13 +190,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 308919726504299372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0976e5ea8bc9b4c9e58607dfa6aa0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 310db1f3c3a049a4ab0c6ebcefadb4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 100
   mDamage: 15
   Hero: 0
   Enemy: 1
-  mFragmentCount: 1
-  mFragmentNum: 5
-  mSubDamageRate: 0.5
+  mCrashCount: 3

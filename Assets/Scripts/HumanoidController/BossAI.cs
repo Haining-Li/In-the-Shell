@@ -95,6 +95,7 @@ public class BossAI : HumanoidController
         if (Time.time - mStatusTimer < currentChaseDuration)
         {
             if (relaPos.magnitude > 20f)
+            {
                 mBehaviorHandler.Move();
             }
             else

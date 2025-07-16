@@ -51,4 +51,5 @@ MonoBehaviour:
   mProjectile: {fileID: 0}
   mShootRate: 0.2
   mShootCoolDown: 0.1
+  mSpeed: 200
   mBurstNum: 3

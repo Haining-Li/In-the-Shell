@@ -51,5 +51,6 @@ MonoBehaviour:
   mProjectile: {fileID: 0}
   mShootRate: 0.3
   mShootCoolDown: 0
+  mSpeed: 150
   mShotNum: 5
   mSectorRange: 30

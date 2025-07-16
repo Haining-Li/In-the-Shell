@@ -9,7 +9,7 @@ public class Shotgun : Weapon
 
     public override void Shoot()
     {
-        
+
         if (Time.time - mShootTimer > mShootRate)
         {
             mShootTimer = Time.time;
@@ -24,6 +24,7 @@ public class Shotgun : Weapon
             }
             mTowards = origin;
             isActivate = false;
+            parentRigid.AddForce(-150 * mTowards, ForceMode2D.Impulse);
         }
     }
 }

@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 4599507632525421505}
   - component: {fileID: 5527412145187438307}
   - component: {fileID: 1982585733938844074}
-  - component: {fileID: 7997721722633966098}
+  - component: {fileID: 2548899502694345770}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1848,7 +1848,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21222599}
   serializedVersion: 2
   m_Radius: 0.21222606
---- !u!114 &7997721722633966098
+--- !u!114 &2548899502694345770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1857,10 +1857,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5923051729725042925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03ddecb7fe04a09409375360b800a20b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f5ce742bac1fa2459bac049356cb8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplayPanel: {fileID: 4760621181598660160}
+  weaponSelectionManager: {fileID: 0}
+  interactionKey: 101
 --- !u!1 &6203572419845378561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,10 +3065,5 @@ PrefabInstance:
 --- !u!224 &258305897720651658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7693123896472077109, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
-  m_PrefabInstance: {fileID: 7590492493533060287}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4760621181598660160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3118680108650326783, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
   m_PrefabInstance: {fileID: 7590492493533060287}
   m_PrefabAsset: {fileID: 0}

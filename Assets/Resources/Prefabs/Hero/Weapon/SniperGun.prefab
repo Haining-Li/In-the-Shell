@@ -47,7 +47,8 @@ MonoBehaviour:
   isActivate: 0
   mFirePoint: {x: 0, y: 0, z: 0}
   mTowards: {x: 0, y: 0, z: 0}
-  mDamageTimes: 5
+  mDamageTimes: 4
   mProjectile: {fileID: 0}
   mShootRate: 1
   mShootCoolDown: 0
+  mSpeed: 300

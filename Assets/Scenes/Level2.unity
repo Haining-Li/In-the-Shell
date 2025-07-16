@@ -1549,6 +1549,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1283679155}
     - target: {fileID: 5279338474360725227, guid: 5c47b95e5813a024cbeb200f469d8e30, type: 3}
+      propertyPath: selectionPanel
+      value: 
+      objectReference: {fileID: 2108110502}
+    - target: {fileID: 5279338474360725227, guid: 5c47b95e5813a024cbeb200f469d8e30, type: 3}
       propertyPath: ammoButtons.Array.data[0]
       value: 
       objectReference: {fileID: 1283679158}
@@ -1670,6 +1674,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987201365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5279338474360725227, guid: 5c47b95e5813a024cbeb200f469d8e30, type: 3}
+  m_PrefabInstance: {fileID: 923155966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66658bbcf4282d49b3c7ef164df2800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1161852096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1856,6 +1871,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2548899502694345770, guid: 0cd9a57afb4557c48b6c903baa6018e3, type: 3}
+      propertyPath: weaponSelectionManager
+      value: 
+      objectReference: {fileID: 987201365}
     - target: {fileID: 3604069291750241895, guid: 0cd9a57afb4557c48b6c903baa6018e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.9
@@ -4821,6 +4840,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 619908716789810647, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
   m_PrefabInstance: {fileID: 763847487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2108110502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4760621181598660160, guid: 0cd9a57afb4557c48b6c903baa6018e3, type: 3}
+  m_PrefabInstance: {fileID: 1283679154}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7547742176803079970
 PrefabInstance:

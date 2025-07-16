@@ -5,7 +5,6 @@ using UnityEngine;
 public class HeroStatus : HumanoidStatus
 {
     private CombatTimer combatTimer; // 确保已声明这个变量
-    AudioController audioController;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +15,6 @@ public class HeroStatus : HumanoidStatus
         {
             Debug.LogWarning("CombatTimer not found in scene!");
         }
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -34,7 +32,7 @@ public class HeroStatus : HumanoidStatus
 
     public override void GetHurt(int damage)
     {
-        audioController.PlaySfx(audioController.HeroHurt);
+        AudioController.Instance.PlaySfx(AudioController.Instance.HeroHurt);
         base.GetHurt(damage);
         // Debug.Log(damage + " " + mHealthPoint);
         if (mHealthPoint <= 0 && !mIsDying)
@@ -61,7 +59,7 @@ public class HeroStatus : HumanoidStatus
         
         // 死亡面板显示
         GameObject canvas = GameObject.Find("Death");
-        audioController.PlaySfx(audioController.HeroDeath);
+        AudioController.Instance.PlaySfx(AudioController.Instance.HeroDeath);
         if (canvas != null)
         {
             Transform panelTransform = canvas.transform.Find("Panel");

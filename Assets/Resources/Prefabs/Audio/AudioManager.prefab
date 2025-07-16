@@ -71,6 +71,7 @@ MonoBehaviour:
   Hide: {fileID: 8300000, guid: 9787ffae22fcc8d4f8b71448a10bcb54, type: 3}
   TimeSlow: {fileID: 8300000, guid: c6359bf3ab95f01428c683c022d6fb9e, type: 3}
   Item: {fileID: 8300000, guid: d3bc8af69ba85f640aa03ee2b5552b6a, type: 3}
+  HeroHurt: {fileID: 8300000, guid: 25988a02d269a7045aecea612e723f8c, type: 3}
 --- !u!1 &6159237256914165417
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class HidePackBehavior : MonoBehaviour
 {
-    AudioController audioController;
 
     // Start is called before the first frame update
     void Start()
-    {
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+    {;
     }
 
     // Update is called once per frame
@@ -20,7 +18,7 @@ public class HidePackBehavior : MonoBehaviour
 
     public void Delete()
     {
-        audioController.PlaySfx(audioController.Item);
+        AudioController.Instance.PlaySfx(AudioController.Instance.Item);
         Destroy(gameObject);
     }
 }

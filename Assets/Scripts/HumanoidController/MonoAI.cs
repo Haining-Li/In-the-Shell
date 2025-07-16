@@ -67,9 +67,7 @@ public class MonoAI : HumanoidController
                 }
                 break;
         }
-
         FlipX();
-
     }
 
     private float mAlertTimer = 0f;
@@ -93,7 +91,6 @@ public class MonoAI : HumanoidController
                 mBehaviorHandler.Idle();
             }
         }
-
     }
 
     private float mWanderTime;
@@ -105,22 +102,7 @@ public class MonoAI : HumanoidController
         {
             Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
             mBehaviorHandler.mFacingDirection = relaPos;
-            /*
-            if (relaPos.magnitude > 0.7f * radius)
-            {
-                // Debug.Log(relaPos.magnitude + " Greater Than " + 0.7f * radius);
-                mBehaviorHandler.mMoveDirection = relaPos;
-            }
-            else if (relaPos.magnitude < 0.3f * radius)
-            {
-                // Debug.Log(relaPos.magnitude + " Lesser Than " + 0.3f * radius);
-                mBehaviorHandler.mMoveDirection = -relaPos;
-            }
-            else
-            {
 
-            }
-            */
             float rate = relaPos.magnitude / radius;
             rate = (rate - 0.5f) * 2;
             mBehaviorHandler.mMoveDirection = rate * relaPos + bias;
@@ -133,11 +115,8 @@ public class MonoAI : HumanoidController
                 bias = Quaternion.Euler(0, 0, 90) * (sign * relaPos);
             }
 
-            
-
             mBehaviorHandler.Move();
             mBehaviorHandler.Shoot();
         }
     }
-
 }

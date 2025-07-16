@@ -13,11 +13,11 @@ public class PatrolEnemyAI : HumanoidController
     private List<Vector3> waypoints = new List<Vector3>();
     private float statusTimer = 0f;
     private int currentWaypointIndex = -1;
-    private float shootingTimer = 0f; // ????????????
+    private float shootingTimer = 0f;
     private bool isShooting = false;
     private float lastCollisionTime = 0f;
     private bool isFacingRight = true;
-    private const float COLLISION_COOLDOWN = 1f; // ?????????????????§Ý?????
+    private const float COLLISION_COOLDOWN = 1f;
 
     [SerializeField] private float patrolRange = 10f;
     [SerializeField] private float shootingDuration = 2f;
@@ -29,15 +29,12 @@ public class PatrolEnemyAI : HumanoidController
     void Start()
     {
         Init();
-        // ???????????
         if (!useFixedSeed)
         {
-            // ???????????????????????????????§ß?????
             Random.InitState((int)System.DateTime.Now.Ticks);
         }
         else
         {
-            // ??¨´????????????????????????????
             Random.InitState(fixedSeed);
         }
 
@@ -49,19 +46,16 @@ public class PatrolEnemyAI : HumanoidController
         Vector3 relativePosition = mSightHandler.mTargetPosition - transform.position;
         mBehaviorHandler.mFacingDirection = relativePosition.normalized;
 
-        // ??????????
         if (relativePosition.x > 0) isFacingRight = true;
         if (relativePosition.x < 0) isFacingRight = false;
         GetComponent<SpriteRenderer>().flipX = !isFacingRight;
 
-        // ????????
         if (mSightHandler.isInSight && currentStatus == Status.Idle)
         {
             mBehaviorHandler.Activate(); 
             currentStatus = Status.Patrolling;
         }
 
-        // ????????
         switch (currentStatus)
         {
             case Status.Idle:
@@ -75,7 +69,6 @@ public class PatrolEnemyAI : HumanoidController
 
     private void InitializeWaypoints()
     {
-        // ??????????????
         for (int i = 0; i < 4; i++)
         {
             Vector3 randomOffset = new Vector3(
@@ -86,13 +79,11 @@ public class PatrolEnemyAI : HumanoidController
             waypoints.Add(transform.position + randomOffset);
         }
 
-        // ???????????
         SelectNextWaypoint();
     }
 
     private void SelectNextWaypoint()
     {
-        // ?????????????????????????
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < waypoints.Count; i++)
         {
@@ -128,11 +119,9 @@ public class PatrolEnemyAI : HumanoidController
 
         if (!isShooting)
         {
-            // ?????????
             mBehaviorHandler.Move();
             mBehaviorHandler.mMoveDirection = directionToWaypoint.normalized;
 
-            // ?????????
             if (directionToWaypoint.magnitude < waypointReachThreshold)
             {
                 isShooting = true;
@@ -145,10 +134,8 @@ public class PatrolEnemyAI : HumanoidController
         {
             Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
             mBehaviorHandler.mFacingDirection = relaPos;
-            // ?????
             mBehaviorHandler.Shoot();
 
-            // ???????????????????????????
             if (Time.time - shootingTimer > shootingDuration)
             {
                 SelectNextWaypoint();
@@ -156,18 +143,14 @@ public class PatrolEnemyAI : HumanoidController
         }
     }
 
-    // ???????????????
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ????????Wall??????????????????????????????
         if (collision.gameObject.CompareTag("Wall") && Time.time - lastCollisionTime > COLLISION_COOLDOWN)
         {
             Debug.Log("Enemy hit wall - switching waypoint");
 
-            // ?????????
             lastCollisionTime = Time.time;
 
-            // ???????????????§Ý????????????
             if (currentStatus == Status.Patrolling)
             {
                 SelectNextWaypoint();

@@ -20,9 +20,6 @@ public class BossStatus : HumanoidStatus
             {
                 Die();
             }
-            else
-            {
-            }
         }
     }
 

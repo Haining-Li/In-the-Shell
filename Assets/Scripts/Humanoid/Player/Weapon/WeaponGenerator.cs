@@ -9,16 +9,6 @@ public class WeaponGenerator : MonoBehaviour
     [Header("Default Settings")]
     public int defaultWeaponType = 1; // 默认武器1
     public int defaultBulletType = 1; // 默认弹药1
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private string[] GunName = {
         "Pistol", "Submachine Gun", "Shotgun", "Sniper Gun"
@@ -74,5 +64,4 @@ public class WeaponGenerator : MonoBehaviour
     
         return gun;
     }
-    
 }

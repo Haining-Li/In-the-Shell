@@ -26,6 +26,5 @@ public class ChangeBGM : MonoBehaviour
             mAudioSource.clip = bgm2;
             mAudioSource.Play();
         }
-        
     }
 }

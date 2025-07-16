@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
-    // Start is called before the first frame update
     public int mShotNum = 6;
     public float mSectorRange = 30f;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void Shoot()
     {

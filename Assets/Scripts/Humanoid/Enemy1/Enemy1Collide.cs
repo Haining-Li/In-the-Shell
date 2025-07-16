@@ -10,10 +10,4 @@ public class Enemy1Collide : HumanoidCollide
     {
         mAnimator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

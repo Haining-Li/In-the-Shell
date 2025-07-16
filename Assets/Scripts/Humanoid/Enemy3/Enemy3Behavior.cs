@@ -44,6 +44,5 @@ public class Enemy3Behavior : HumanoidBehavior
             mTowards = origin;
             mAnimator.SetTrigger("Shoot");
         }
-        
     }
 }

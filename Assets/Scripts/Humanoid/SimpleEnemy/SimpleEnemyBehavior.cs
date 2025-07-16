@@ -13,12 +13,6 @@ public class EnemyBehaviorA : HumanoidBehavior
     {
         Init();
     }
-    void Update()
-    {
-        
-        
-    }
-
 
     public new void Shoot()
     {

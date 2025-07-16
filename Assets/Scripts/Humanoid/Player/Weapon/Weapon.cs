@@ -15,24 +15,16 @@ public class Weapon : MonoBehaviour
     protected float mShootTimer;
     protected float mCoolDownTimer;
     protected Transform parentObject;
-    protected AudioController audioController;
 
     protected void Start()
     {
         parentObject = GetComponentInParent<Transform>();
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     virtual public void Shoot()
     {
         GameObject e = Instantiate(mProjectile);
-        audioController.PlaySfx(audioController.HeroShoot);
+        AudioController.Instance.PlaySfx(AudioController.Instance.HeroShoot);
         e.transform.localPosition = parentObject.TransformPoint(transform.localPosition);
         float angle = Mathf.Atan2(mTowards.y, mTowards.x) * Mathf.Rad2Deg;
         e.transform.rotation = Quaternion.Euler(0, 0, angle);

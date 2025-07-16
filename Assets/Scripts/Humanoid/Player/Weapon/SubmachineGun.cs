@@ -6,16 +6,9 @@ public class SubmachineGun : Weapon
 {
     public int mBurstNum;
     private int mBurstCount = 0;
-    // Start is called before the first frame update
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public override void Shoot()
     {
-        
         if (Time.time - mCoolDownTimer > mShootRate)
         {
             if (mBurstCount < mBurstNum)
@@ -35,5 +28,4 @@ public class SubmachineGun : Weapon
             }
         }
     }
-
 }

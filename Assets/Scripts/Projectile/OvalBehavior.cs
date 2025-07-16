@@ -10,7 +10,6 @@ public class OvalBehavior : ProjectileBehavior
         mStatus = ProjectileStatus.Flying;
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +73,6 @@ public class OvalBehavior : ProjectileBehavior
         {
             mStatus = ProjectileStatus.Destroyed;
         }
-
     }
 
     public override void Destroy()
@@ -109,6 +107,4 @@ public class OvalBehavior : ProjectileBehavior
             }
         }
     }
-
-
 }

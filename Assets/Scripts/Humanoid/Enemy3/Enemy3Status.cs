@@ -6,11 +6,9 @@ public class Enemy3Status : HumanoidStatus
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject bloodPackagePrefab;
-    AudioController audioController;
     void Start()
     {
         mAnimator = GetComponent<Animator>();
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -22,9 +20,6 @@ public class Enemy3Status : HumanoidStatus
             if (Time.time - mStatusTimer > stateInfo.length)
             {
                 Die();
-            }
-            else
-            {
             }
         }
     }
@@ -47,7 +42,7 @@ public class Enemy3Status : HumanoidStatus
 
     public override void Die()
     {
-        audioController.PlaySfx(audioController.Enemy3Death);
+        AudioController.Instance.PlaySfx(AudioController.Instance.Enemy3Death);
         base.Die();
         if (Random.Range(0f, 1f) <= 1f)
         {

@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class SniperRifle : Weapon
 {
-    // Start is called before the first frame update
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
-
     public override void Shoot()
     {
-        
         if (Time.time - mShootTimer > mShootRate)
         {
             mShootTimer = Time.time;

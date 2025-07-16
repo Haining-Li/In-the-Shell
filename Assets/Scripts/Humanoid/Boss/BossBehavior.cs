@@ -41,11 +41,6 @@ public class BossBehavior : HumanoidBehavior
         if (player != null)
         {
             playerTransform = player.transform;
-            Debug.Log("成功锁定玩家目标");
-        }
-        else
-        {
-            Debug.LogWarning("未找到玩家对象！请确保玩家有'Player'标签");
         }
     }
 
@@ -81,7 +76,7 @@ public class BossBehavior : HumanoidBehavior
         if (Time.time - mShootTimer > mShootRate)
         {
             mShootTimer = Time.time;
-            if (mShootMode == 1)//火箭
+            if (mShootMode == 1)
             {
                 mBullet = mBullet1;
                 mFirePoint = mFirePoint1;
@@ -125,9 +120,7 @@ public class BossBehavior : HumanoidBehavior
                 mAnimator.SetInteger("ShootMode", mShootMode);
                 mShootRate = mShootRate3;
             }
-
         }
-        
     }
 
     public float GetSpeed()

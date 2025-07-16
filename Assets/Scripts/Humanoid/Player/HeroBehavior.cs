@@ -145,7 +145,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         if (mIsTimeSlowing)
         {
-            float tempSpeed = 2 * mSpeed / slowMotionFactor;
+            float tempSpeed = mSpeed / slowMotionFactor;
             float force = tempSpeed * mRigidBody.drag;
             mRigidBody.AddForce(force * mDirection);
         }

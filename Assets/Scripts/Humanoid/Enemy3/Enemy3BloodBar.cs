@@ -17,7 +17,6 @@ public class Enemy3BloodBar : MonoBehaviour
 
     void InitializeHealthSystem()
     {
-
         enemyStatus = GetComponentInParent<Enemy3Status>();
 
         if (enemyStatus == null)

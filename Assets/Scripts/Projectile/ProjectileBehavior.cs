@@ -31,8 +31,6 @@ public class ProjectileBehavior : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-
     public void Init()
     {
         mAnimator = GetComponent<Animator>();

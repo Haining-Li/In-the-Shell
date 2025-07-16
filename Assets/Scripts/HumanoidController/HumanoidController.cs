@@ -12,18 +12,6 @@ public class HumanoidController : MonoBehaviour
     protected Sight mSightHandler = null;
     protected float mStatusTimer = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     virtual protected void Init()
     {
         mBehaviorHandler = GetComponent<HumanoidBehavior>();

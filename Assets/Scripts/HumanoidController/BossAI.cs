@@ -15,25 +15,22 @@ public class BossAI : HumanoidController
         Init();
     }
 
-    // Boss״̬ö��
     enum Status
     {
-        Idle,       // ��ֹ״̬
-        Chasing,    // ׷��״̬
-        Rampage     // ����״̬��Ѫ������50%��
+        Idle,
+        Chasing,
+        Rampage
     }
     private Status mStatus = Status.Idle;
 
-    // ״̬��ʱ��
     private float mShootPatternTimer = 0f;
-    private int mCurrentShootMode = 1; // ��ǰ���ģʽ��1,2,3��
+    private int mCurrentShootMode = 1;
 
-    // ���ò���
-    public float chaseDuration = 5f;      // ����״̬׷��ʱ��
-    public float rampageChaseDuration = 3f; // ����״̬׷��ʱ��
-    public float shootDuration = 15f;      // �������ʱ��
+    public float chaseDuration = 5f;
+    public float rampageChaseDuration = 3f;
+    public float shootDuration = 15f;
 
-    public bool isRampageMode = false;   // �Ƿ��ڱ���ģʽ
+    public bool isRampageMode = false;
     public bool isChangingMode = false;
 
     void Update()
@@ -42,18 +39,15 @@ public class BossAI : HumanoidController
          {         
             mStatus = Status.Idle;
             isChangingMode = true;
-            Debug.Log("Boss��ʼ���뱩��ģʽ��");
          }
 
         if(mBossStatus.mHealthPoint <mBossStatus.mMaxHealthPoint && isChangingMode)
         {
             mBossStatus.Recover(50);
-            Debug.Log("Boss���ڽ��뱩��ģʽ��");
         }
         if (mBossStatus.mHealthPoint == mBossStatus.mMaxHealthPoint && isChangingMode)
         {
             isChangingMode = false;
-            Debug.Log("Boss�ɹ����뱩��ģʽ��");
             mStatus = Status.Rampage;
             isRampageMode=true;
         }
@@ -87,12 +81,10 @@ public class BossAI : HumanoidController
     {
         mBehaviorHandler.Idle();
 
-        // ���������ң��л���׷��״̬
         if (mSightHandler.isInSight && !isChangingMode)
         {
             mStatus = Status.Chasing;
             mStatusTimer = Time.time;
-            Debug.Log("Boss������ң�����׷��״̬");
         }
     }
 
@@ -100,12 +92,9 @@ public class BossAI : HumanoidController
     {
         float currentChaseDuration = isRampageMode ? rampageChaseDuration : chaseDuration;
 
-        // ׷��׶�
         if (Time.time - mStatusTimer < currentChaseDuration)
         {
-            // ׷�����
-            if (relaPos.magnitude > 20f) // ����һ������
-            {
+            if (relaPos.magnitude > 20f)
                 mBehaviorHandler.Move();
             }
             else
@@ -113,55 +102,43 @@ public class BossAI : HumanoidController
                 mBehaviorHandler.Idle();
             }
         }
-        // ����׶�
         else if (Time.time - mStatusTimer < currentChaseDuration + shootDuration)
         {
-            // ֹͣ�ƶ�����ʼ���
             mBehaviorHandler.Idle();
 
-            // �������ģʽ
             BossBehavior bossBehavior = mBehaviorHandler as BossBehavior;
             bossBehavior.mShootMode = mCurrentShootMode;
 
-            // ִ�����
             mBehaviorHandler.Shoot();
 
-            // �������ģʽ��ʱ��
             if (Time.time - mShootPatternTimer > shootDuration / 3f)
             {
-                mCurrentShootMode = mCurrentShootMode % 3 + 1; // ѭ��1,2,3
+                mCurrentShootMode = mCurrentShootMode % 3 + 1;
                 mShootPatternTimer = Time.time;
-                Debug.Log("�л����ģʽ: " + mCurrentShootMode);
             }
         }
-        // �ص�׷��׶�
         else
         {
             mStatusTimer = Time.time;
-            mCurrentShootMode = 1; // �������ģʽ
+            mCurrentShootMode = 1;
         }
     }
 
     private void HandleRampageState(Vector3 relaPos)
     {
-        // ����״̬�³����ƶ������
         if (relaPos.magnitude > 2f)
         {
             mBehaviorHandler.Move();
         }
 
-        // �������ģʽ
         BossBehavior bossBehavior = mBehaviorHandler as BossBehavior;
         bossBehavior.mShootMode = mCurrentShootMode;
-        // ִ�����
         mBehaviorHandler.Shoot();
 
-        // �������ģʽ
         if (Time.time - mShootPatternTimer > shootDuration / 3f)
         {
-            mCurrentShootMode = mCurrentShootMode % 3 + 1; // ѭ��1,2,3
+            mCurrentShootMode = mCurrentShootMode % 3 + 1;
             mShootPatternTimer = Time.time;
-            Debug.Log("����ģʽ���л����ģʽ: " + mCurrentShootMode);
         }
     }
 }

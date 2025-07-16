@@ -31,8 +31,6 @@ public class PatrolAI : HumanoidController
             Vector3 worldPos = WayPoints[i];
             float size = HandleUtility.GetHandleSize(worldPos) * 0.1f;
             
-
-            // 拖动点
             EditorGUI.BeginChangeCheck();
             Vector3 newPos = Handles.FreeMoveHandle(
                 GUIUtility.GetControlID(FocusType.Passive),

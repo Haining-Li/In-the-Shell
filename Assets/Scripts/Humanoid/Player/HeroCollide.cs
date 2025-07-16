@@ -8,7 +8,6 @@ public class HeroCollide : MonoBehaviour
 {
     private Light2D heroLight;
     private static Light2D globalLight;
-    // Start is called before the first frame update
 
     public bool getLegPack = false;
     public bool getOptPack = false;
@@ -18,12 +17,6 @@ public class HeroCollide : MonoBehaviour
     {
         heroLight = GetComponentInChildren<Light2D>();
         globalLight = GameObject.Find("GlobalLight").GetComponent<Light2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

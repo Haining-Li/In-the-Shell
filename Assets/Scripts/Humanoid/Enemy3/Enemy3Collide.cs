@@ -9,10 +9,4 @@ public class Enemy3Collide : HumanoidCollide
     {
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

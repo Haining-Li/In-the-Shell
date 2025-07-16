@@ -6,11 +6,9 @@ public class BloodPackage : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
-    AudioController audioController;
     void Start()
     {
         animator = GetComponent<Animator>();
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -21,7 +19,7 @@ public class BloodPackage : MonoBehaviour
 
     public void Delete()
     {
-        audioController.PlaySfx(audioController.BloodPack);
+        AudioController.Instance.PlaySfx(AudioController.Instance.BloodPack);
         animator.SetTrigger("IsDead");
         Destroy(gameObject);
     }

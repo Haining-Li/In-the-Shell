@@ -42,7 +42,6 @@ public class Enemy1BloodBar : MonoBehaviour
     {
         int currentIndex = (healthBarSprites.Length - 2) * enemyStatus.mHealthPoint / maxHealth + 1;
         if (enemyStatus.mHealthPoint == 0) currentIndex = 0;
-        //Debug.Log(currentIndex);
         healthBarImage.sprite = healthBarSprites[currentIndex];
         lastHealthIndex = currentIndex;
     }

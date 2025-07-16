@@ -34,8 +34,6 @@ public class HeroBehavior : HumanoidBehavior
     public delegate void TimeSlowChangedEvent(bool isActive, float duration);
     public event TimeSlowChangedEvent OnTimeSlowChanged;
 
-    AudioController audioController;
-
     private Rigidbody2D rb2D;
     public Vector3 HeroFirePoint;
 
@@ -56,14 +54,13 @@ public class HeroBehavior : HumanoidBehavior
         mShootTimer = Time.unscaledTime;
         mHideTimer = Time.unscaledTime;
         rb2D = GetComponent<Rigidbody2D>();
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
         HeroFirePoint = new Vector3 (8f, 8f, 0f);
     }
     public void ActivateTimeSlow()
     {
         if (!mIsTimeSlowing && canMoveSlow && !mIsOnCooldown)
         {
-            audioController.PlaySfx(audioController.TimeSlow);
+            AudioController.Instance.PlaySfx(AudioController.Instance.TimeSlow);
             StartCoroutine(TimeSlowCoroutine());
         }
     }
@@ -72,7 +69,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         if (!mIsHiding && canHide && !mIsOnHidingCoolDown)
         {
-            audioController.PlaySfx(audioController.Hide);
+            AudioController.Instance.PlaySfx(AudioController.Instance.Hide);
             StartCoroutine(HideCoroutine());
         }
     }
@@ -136,16 +133,14 @@ public class HeroBehavior : HumanoidBehavior
             remainingTime = slowMotionCooldown - (Time.unscaledTime - startTime);
             yield return null;
         }
-
         mIsOnCooldown = false;
-
     }
 
     public override void Move()
     {
         if (mIsTimeSlowing)
         {
-            float tempSpeed = 2 * mSpeed / slowMotionFactor;
+            float tempSpeed = mSpeed / slowMotionFactor;
             float force = tempSpeed * mRigidBody.drag;
             mRigidBody.AddForce(force * mDirection);
         }
@@ -179,7 +174,7 @@ public class HeroBehavior : HumanoidBehavior
 
         if (canDash && Time.unscaledTime - mDashTimer > dashCooldown)
         {
-            audioController.PlaySfx(audioController.Dash);
+            AudioController.Instance.PlaySfx(AudioController.Instance.Dash);
             Vector3 effectiveForce = mIsTimeSlowing ?
                 5 * mSpeed * mDirection / slowMotionFactor :
                 5 * mSpeed * mDirection;
@@ -218,5 +213,4 @@ public class HeroBehavior : HumanoidBehavior
             Hide();
         }
     }
-
 }

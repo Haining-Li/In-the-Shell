@@ -47,7 +47,7 @@ public class BossAI : HumanoidController
 
         if(mBossStatus.mHealthPoint <mBossStatus.mMaxHealthPoint && isChangingMode)
         {
-            mBossStatus.Recover(20);
+            mBossStatus.Recover(50);
             Debug.Log("Boss���ڽ��뱩��ģʽ��");
         }
         if (mBossStatus.mHealthPoint == mBossStatus.mMaxHealthPoint && isChangingMode)

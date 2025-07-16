@@ -57,7 +57,7 @@ public class WeaponGenerator : MonoBehaviour
             1 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/Pistol") as GameObject),
             2 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/SubmachineGun") as GameObject),
             3 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/Shotgun") as GameObject),
-            4 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/SniperRifle") as GameObject),
+            4 => Instantiate(Resources.Load("Prefabs/Hero/Weapon/SniperGun") as GameObject),
             _ => null
         };
     

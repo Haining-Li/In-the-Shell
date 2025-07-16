@@ -592,7 +592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shotgun
+  m_text: SMG
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sniper
+  m_text: ShotGun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BouncingS
+  m_text: Bouncing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Minigun
+  m_text: Sniper
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}

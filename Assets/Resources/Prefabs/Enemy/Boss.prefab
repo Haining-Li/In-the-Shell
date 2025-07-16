@@ -311,6 +311,7 @@ MonoBehaviour:
   mShootMode: 2
   mBullet1: {fileID: 6895876302089634678, guid: 543e13fe8b2fca74aafd693303bb8cd9, type: 3}
   mBullet3: {fileID: 308919726504299372, guid: 89faf26732ec535439c62442df64cb2c, type: 3}
+  mBullet3_2: {fileID: 308919726504299372, guid: c66594b771a8c9d4b91113608f153513, type: 3}
   mFirePoint1: {x: -4, y: 25, z: 0}
   mFirePoint3: {x: 20, y: 12.5, z: 0}
   mShootRate1: 1
@@ -370,6 +371,8 @@ MonoBehaviour:
   chaseDuration: 5
   rampageChaseDuration: 3
   shootDuration: 9
+  isRampageMode: 0
+  isChangingMode: 0
 --- !u!1 &1412317055558393867
 GameObject:
   m_ObjectHideFlags: 0

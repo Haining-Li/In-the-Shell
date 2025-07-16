@@ -9,8 +9,6 @@ public class Enemy1Status : HumanoidStatus
     void Start()
     {
         mAnimator = GetComponent<Animator>();
-        Debug.Log("Enemy1 Animator" + mAnimator);
-        Debug.Assert(mAnimator != null, "Why?");
     }
 
     // Update is called once per frame

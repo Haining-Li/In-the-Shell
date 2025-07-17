@@ -5826,6 +5826,18 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: e68553796e4aeb24ea789dedb79bf405, type: 3}
+    - target: {fileID: 8460893993708465043, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
+      propertyPath: bgmClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c218df95eb986e47b23c029fd58ef93, type: 3}
+    - target: {fileID: 8460893993708465043, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
+      propertyPath: bgmClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e68553796e4aeb24ea789dedb79bf405, type: 3}
+    - target: {fileID: 8460893993708465043, guid: 2c7fd6a5f42020345b0f6d169381ef68, type: 3}
+      propertyPath: bgmClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 63945e24b8939694aadf608f62bb6ad5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

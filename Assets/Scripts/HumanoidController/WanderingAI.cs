@@ -42,14 +42,19 @@ public class WanderingAI : HumanoidController
 
 
     Vector3 direction = Vector3.zero;
+    int move = 0;
     void Idle()
     {
-        int move = Random.Range(0, 1);
         if (Time.time - mStatusTimer > 2f)
         {
+            Debug.Log("Set direction");
+            Debug.Log(move);
+            move = Random.Range(0, 2);
+            Debug.Log(move);
             float moveX = Random.Range(-1f, 1f);
             float moveY = Random.Range(-1f, 1f);
             direction = new Vector3(moveX, moveY);
+            mBehaviorHandler.mMoveDirection = direction;
             mStatusTimer = Time.time;
         }
         else
@@ -59,16 +64,19 @@ public class WanderingAI : HumanoidController
 
         if (move == 1)
         {
+            Debug.Log("Move" + direction);
             mBehaviorHandler.Move();
         }
         else
         {
+            Debug.Log(move);
             mBehaviorHandler.Idle();
         }
 
-        if (mSightHandler)
+        if (mSightHandler.isInSight)
         {
             mStatus = Status.Attack;
+            mStatusTimer = Time.time;
         }
     }
 
@@ -84,9 +92,9 @@ public class WanderingAI : HumanoidController
 
             float rate = relaPos.magnitude / radius;
             // Debug.Log(relaPos.magnitude + " " + radius + " " + rate);
-            mBehaviorHandler.mShootRate = 0.5f + 1.5f * rate;
+            mBehaviorHandler.mShootRate = 2f - 1.5f * rate;
             rate = - rate;
-            mBehaviorHandler.mMoveDirection = rate * relaPos + bias;
+            mBehaviorHandler.mMoveDirection = (rate > 0.5 ? 0 : 2 * rate - 1) * relaPos + bias;
 
 
             if (Time.time - mWanderTime > 0.8f)

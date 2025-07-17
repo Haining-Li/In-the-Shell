@@ -20,11 +20,11 @@ public class Enemy1Status : HumanoidStatus
             if (Time.time - mStatusTimer >= stateInfo.length)
             {
                 Die();
-                Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
+                // Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
             }
             else
             {
-                Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
+                // Debug.Log((Time.time - mStatusTimer) + " " + stateInfo.length);
             }
         }
     }
@@ -38,12 +38,12 @@ public class Enemy1Status : HumanoidStatus
             mIsDying = true;
             mAnimator.SetBool("Die", true);
             mStatusTimer = Time.time;
-            Debug.Log("Set");
-            Debug.Log(mStatusTimer);
+            // Debug.Log("Set");
+            // Debug.Log(mStatusTimer);
         }
         else
         {
-            Debug.Log(mAnimator);
+            // Debug.Log(mAnimator);
             mAnimator.SetTrigger("GetHurt");
         }
     }

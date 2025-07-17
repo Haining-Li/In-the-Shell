@@ -18,7 +18,12 @@ public class HumanoidBehavior : MonoBehaviour
     protected Vector3 mDirection;
     public Vector3 mMoveDirection
     {
-        set { mDirection = value.normalized; }
+        get { return mDirection; }
+        set
+        {
+            Debug.Log($"修改 mMoveDirection 为: {value}\n调用堆栈:\n{new System.Diagnostics.StackTrace()}");
+            mDirection = value.normalized;
+        }
     }
 
     // used by others
@@ -77,7 +82,7 @@ public class HumanoidBehavior : MonoBehaviour
 
     virtual public void Dash()
     {
-        mRigidBody.AddForce(mSpeed * mDirection, ForceMode2D.Impulse);
+        mRigidBody.AddForce(5 * mSpeed * mDirection, ForceMode2D.Impulse);
     }
 
     virtual public void Sleep()

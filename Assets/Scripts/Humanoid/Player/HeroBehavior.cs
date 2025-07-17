@@ -41,6 +41,7 @@ public class HeroBehavior : HumanoidBehavior
     {
         Init();
         // mFirePoint = new Vector3(0, 8, 0);
+        originSpeed = mSpeed;
         mWeaponHandler = GetComponentInChildren<Weapon>();
         if (mWeaponHandler == null)
         {
@@ -109,6 +110,8 @@ public class HeroBehavior : HumanoidBehavior
         Time.timeScale = slowMotionFactor;
         Time.fixedDeltaTime = mOriginalFixedDeltaTime * slowMotionFactor;
         mAnimator.speed = 1f / slowMotionFactor;
+        originSpeed = mSpeed;
+        mSpeed /= slowMotionFactor;
 
         yield return new WaitForSecondsRealtime(slowMotionDuration);
 
@@ -116,6 +119,7 @@ public class HeroBehavior : HumanoidBehavior
         Time.fixedDeltaTime = mOriginalFixedDeltaTime;
         mAnimator.speed = 1f;
         mIsTimeSlowing = false;
+        mSpeed = originSpeed;
 
         OnTimeSlowChanged?.Invoke(false, slowMotionCooldown);
         StartCoroutine(CooldownCoroutine());
@@ -136,18 +140,10 @@ public class HeroBehavior : HumanoidBehavior
         mIsOnCooldown = false;
     }
 
+    private float originSpeed;
     public override void Move()
     {
-        if (mIsTimeSlowing)
-        {
-            float tempSpeed = mSpeed / slowMotionFactor;
-            float force = tempSpeed * mRigidBody.drag;
-            mRigidBody.AddForce(force * mDirection);
-        }
-        else
-        {
-            base.Move();
-        }
+        base.Move();
         mAnimator.SetFloat("MoveSpeed", 1f);
     }
 
@@ -173,12 +169,15 @@ public class HeroBehavior : HumanoidBehavior
         if (canDash && Time.unscaledTime - mDashTimer > dashCooldown)
         {
             AudioController.Instance.PlaySfx(AudioController.Instance.Dash);
+            /*
             Vector3 effectiveForce = mIsTimeSlowing ?
                 5 * mSpeed * mDirection / slowMotionFactor :
                 5 * mSpeed * mDirection;
 
             mRigidBody.AddForce(effectiveForce, ForceMode2D.Impulse);
             mDashTimer = Time.unscaledTime;
+            */
+            base.Dash();
         }
     }
 

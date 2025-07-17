@@ -65,15 +65,15 @@ public class MonoAI : HumanoidController
         }
         if (mCollideHandler.isGetHit)
         {
-            mStatus = Status.Alert;
-            mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = mCollideHandler.GetCollide();
             mStatusTimer = Time.time;
+            mStatus = Status.Alert;
         }
     }
 
     void Alert()
     {
         // Action
+        Debug.Log(mBehaviorHandler.mMoveDirection);
         mBehaviorHandler.Move();
         mBehaviorHandler.Shoot();
 
@@ -85,8 +85,10 @@ public class MonoAI : HumanoidController
         }
         if (mCollideHandler.isGetHit)
         {
-            Vector3 relaPos = mCollideHandler.GetCollide() - transform.localPosition;
+            Vector3 relaPos = mCollideHandler.GetCollide();
+            Debug.Log("Get " + relaPos);
             mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = relaPos;
+            Debug.Log("After Get" + mBehaviorHandler.mMoveDirection);
             mStatusTimer = Time.time;
         }
         else

@@ -43,6 +43,8 @@ public class PatrolEnemyAI : HumanoidController
 
     void Update()
     {
+        if (!isActivated) return;
+
         Vector3 relativePosition = mSightHandler.mTargetPosition - transform.position;
         mBehaviorHandler.mFacingDirection = relativePosition.normalized;
 

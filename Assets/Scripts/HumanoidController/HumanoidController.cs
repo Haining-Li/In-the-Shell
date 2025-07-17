@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class HumanoidController : MonoBehaviour
 {
-    
+
     protected bool towardsRight = true;
     protected HumanoidBehavior mBehaviorHandler = null;
     protected HumanoidStatus mStatusHandler = null;
     protected Sight mSightHandler = null;
     protected float mStatusTimer = 0f;
+    protected bool isActivated = false;
 
     virtual protected void Init()
     {
@@ -30,5 +31,10 @@ public class HumanoidController : MonoBehaviour
             scale.x = -Math.Abs(scale.x);
         }
         transform.localScale = scale;
+    }
+
+    virtual public void Activate()
+    {
+        isActivated = true;
     }
 }

@@ -11,6 +11,8 @@ public class SniperRifle : Weapon
             mShootTimer = Time.time;
             base.Shoot();
             isActivate = false;
+            parentRigid.AddForce(-250 * mTowards, ForceMode2D.Impulse);
         }
     }
+    
 }

@@ -52,4 +52,4 @@ MonoBehaviour:
   mShootRate: 0.5
   mShootCoolDown: 0
   mShotNum: 5
-  mSectorRange: 30
+  mSectorRange: 15

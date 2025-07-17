@@ -15,10 +15,12 @@ public class Weapon : MonoBehaviour
     protected float mShootTimer;
     protected float mCoolDownTimer;
     protected Transform parentObject;
+    protected Rigidbody2D parentRigid;
 
     protected void Start()
     {
         parentObject = GetComponentInParent<Transform>();
+        parentRigid = GetComponentInParent<Rigidbody2D>();
     }
 
     virtual public void Shoot()

@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2112,7 +2111,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1.2230225, y: 477.19}
+  m_SizeDelta: {x: -1.2230225, y: 1008.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &379276566
 MonoBehaviour:
@@ -2150,7 +2149,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -2290,7 +2289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: -29.999985}
   m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486480473
@@ -3387,8 +3386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 290.8885, y: -238.595}
-  m_SizeDelta: {x: 581.777, y: 477.19}
+  m_AnchoredPosition: {x: 290.8885, y: -504.005}
+  m_SizeDelta: {x: 581.777, y: 1008.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941214906
 MonoBehaviour:
@@ -3410,23 +3409,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game Development and Programming
+  m_text: 'Game Development
 
     NoPainNoGame
 
 
-    Massive Guidance
-    and Ideas
+    Massive Guidance and Ideas
 
     Kelvin
 
 
-    Dedicated To
+    Dedicated
+    To
 
-    Introduction to 2D Game Development
+    Introduction to 2D Game Development, 2025
 
 
-'
+    Inspired By
+
+    Detroit
+
+    Ghost
+    in the Shell
+
+
+    Music
+
+
+
+    Artworks
+
+    https://trevor-pupkin.itch.io/tech-dungeon-roguelite'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
   m_sharedMaterial: {fileID: -1553338587422427253, guid: d40b7f5db914270408591f389f7ccfff, type: 2}
@@ -3726,7 +3739,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1568741275}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6286804
+  m_Size: 0.29761606
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4074,7 +4087,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796981033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.3713196}
+  m_AnchorMin: {x: 0, y: 0.70238394}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -4856,12 +4869,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &2043148515
 GameObject:
   m_ObjectHideFlags: 0

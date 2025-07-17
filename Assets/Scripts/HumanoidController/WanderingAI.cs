@@ -65,6 +65,11 @@ public class WanderingAI : HumanoidController
         {
             mBehaviorHandler.Idle();
         }
+
+        if (mSightHandler)
+        {
+            mStatus = Status.Attack;
+        }
     }
 
     private float mWanderTime;
@@ -78,6 +83,8 @@ public class WanderingAI : HumanoidController
             mBehaviorHandler.mFacingDirection = relaPos;
 
             float rate = relaPos.magnitude / radius;
+            // Debug.Log(relaPos.magnitude + " " + radius + " " + rate);
+            mBehaviorHandler.mShootRate = 0.5f + 1.5f * rate;
             rate = - rate;
             mBehaviorHandler.mMoveDirection = rate * relaPos + bias;
 

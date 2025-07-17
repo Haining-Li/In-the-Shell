@@ -5245,6 +5245,10 @@ PrefabInstance:
       propertyPath: getHidePack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 663273435726190955, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4350502379578877612, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
       propertyPath: canDash
       value: 0

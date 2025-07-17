@@ -130,7 +130,7 @@ public class WeaponSelectionManager : MonoBehaviour
 
         // Attach new weapon to hero
         newWeapon.transform.SetParent(hero.transform);
-        newWeapon.transform.localPosition = new Vector3(0.05f, 0.15f, 0);
+        newWeapon.transform.localPosition = new Vector3(0.05f, 0.22f, 0);
         newWeapon.transform.localRotation = Quaternion.identity;
 
         // Update hero's weapon reference

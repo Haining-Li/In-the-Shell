@@ -9,13 +9,16 @@ public class HumanoidController : MonoBehaviour
     protected bool towardsRight = true;
     protected HumanoidBehavior mBehaviorHandler = null;
     protected HumanoidStatus mStatusHandler = null;
+    protected HumanoidCollide mCollideHandler = null;
     protected Sight mSightHandler = null;
     protected float mStatusTimer = 0f;
 
     virtual protected void Init()
     {
         mBehaviorHandler = GetComponent<HumanoidBehavior>();
+        mStatusHandler = GetComponent<HumanoidStatus>();
         mSightHandler = GetComponentInChildren<Sight>();
+        mCollideHandler = GetComponent<HumanoidCollide>();
     }
 
     virtual protected void FlipX()

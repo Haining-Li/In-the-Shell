@@ -7,6 +7,8 @@ using UnityEngine;
 public class HumanoidCollide : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Vector3 mCollidePos = Vector3.zero;
+    public bool isGetHit = false;
     void Start()
     {
 
@@ -18,8 +20,19 @@ public class HumanoidCollide : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        GameObject e = collision.gameObject;
+        if (e.layer == LayerMask.NameToLayer("Projectile"))
+        {
+            isGetHit = true;
+            mCollidePos = e.transform.localPosition;
+        }
+    }
+
+    public Vector3 GetCollide()
+    {
+        isGetHit = false;
+        return mCollidePos;
     }
 }

@@ -33,38 +33,15 @@ public class MonoAI : HumanoidController
         {
             case Status.Idle:
                 // Debug.Log(mSightHandler.isInSight);
-                mBehaviorHandler.Idle();
-                if (mSightHandler.isInSight)
-                {
-                    mStatus = Status.Attack;
-                    mStatusTimer = Time.time;
-                }
+                Idle();
                 break;
             case Status.Alert:
                 // Debug.Log(mSightHandler.isInSight);
-                if (mSightHandler.isInSight)
-                {
-                    mStatus = Status.Attack;
-                    mStatusTimer = Time.time;
-                }
-                else
-                {
-                    Alert();
-                    if (Time.time - mStatusTimer > mAlertDuration)
-                    {
-                        mStatusTimer = Time.time;
-                        mStatus = Status.Idle;
-                    }
-                }
+                Alert();
                 break;
             case Status.Attack:
                 // Debug.Log(mSightHandler.isInSight);
                 Attack();
-                if (!mSightHandler.isInSight)
-                {
-                    mStatus = Status.Alert;
-                    mStatusTimer = Time.time;
-                }
                 break;
         }
         FlipX();
@@ -73,22 +50,48 @@ public class MonoAI : HumanoidController
     private float mAlertTimer = 0f;
     private float mChangeRate = 1f;
     private bool isRandomMove = false;
+
+    void Idle()
+    {
+        // Action
+        mBehaviorHandler.Idle();
+        // Set Status
+        if (mSightHandler.isInSight)
+        {
+            mStatus = Status.Attack;
+            mStatusTimer = Time.time;
+        }
+        if (mCollideHandler.isGetHit)
+        {
+            mStatus = Status.Alert;
+            mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = mCollideHandler.GetCollide();
+            mStatusTimer = Time.time;
+        }
+    }
+
     void Alert()
     {
-        Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
-        if (Time.time - mAlertTimer > mChangeRate)
+        // Action
+        mBehaviorHandler.Move();
+        mBehaviorHandler.Shoot();
+
+        // Set Status
+        if (mSightHandler.isInSight)
         {
-            mAlertTimer = Time.time;
-            isRandomMove = !isRandomMove;
-            if (isRandomMove)
+            mStatus = Status.Attack;
+            mStatusTimer = Time.time;
+        }
+        if (mCollideHandler.isGetHit)
+        {
+            mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = mCollideHandler.GetCollide();
+            mStatusTimer = Time.time;
+        }
+        else
+        {
+            if (Time.time - mStatusTimer > mAlertDuration)
             {
-                float angle = Random.Range(-10, 10);
-                Quaternion rotation = Quaternion.Euler(0, 0, angle);
-                mBehaviorHandler.mMoveDirection = rotation * relaPos;
-            }
-            else
-            {
-                mBehaviorHandler.Idle();
+                mStatusTimer = Time.time;
+                mStatus = Status.Idle;
             }
         }
     }
@@ -97,6 +100,7 @@ public class MonoAI : HumanoidController
     private Vector3 bias = Vector3.zero;
     void Attack()
     {
+        // Action
         float radius = GetComponentInChildren<CircleCollider2D>().radius * transform.localScale.y;
         if (mSightHandler.isInSight)
         {
@@ -117,6 +121,12 @@ public class MonoAI : HumanoidController
 
             mBehaviorHandler.Move();
             mBehaviorHandler.Shoot();
+        }
+        // Set Status
+        if (!mSightHandler.isInSight)
+        {
+            mStatus = Status.Alert;
+            mStatusTimer = Time.time;
         }
     }
 }

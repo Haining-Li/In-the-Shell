@@ -65,6 +65,10 @@ public class WanderingAI : HumanoidController
         {
             mBehaviorHandler.Idle();
         }
+        if(mSightHandler.isInSight)
+        {
+            mStatus = Status.Attack;
+        }
     }
 
     private float mWanderTime;

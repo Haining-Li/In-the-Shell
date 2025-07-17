@@ -216,8 +216,7 @@ GameObject:
   - component: {fileID: 2401783133850958304}
   - component: {fileID: 4851447808400065534}
   - component: {fileID: 3160855265316918193}
-  - component: {fileID: 3440106750720958819}
-  - component: {fileID: 7430268162514026384}
+  - component: {fileID: 8734494348970002356}
   m_Layer: 31
   m_Name: Enemy2
   m_TagString: Enemy
@@ -432,6 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744bcf42d43cf34eb4cf11983fea804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCollidePos: {x: 0, y: 0, z: 0}
+  isGetHit: 0
 --- !u!114 &3160855265316918193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,19 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f16e77ab35af1c4e995e90495cc0029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3440106750720958819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4250378359336502022}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5c1a77cbec4cd4cae44173461ce4b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7430268162514026384
+--- !u!114 &8734494348970002356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,15 +454,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4250378359336502022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6bae5813cbbbf44a5169d90853855a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab2652fbfec71c4cb60e0e2126d931f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolRange: 30
-  shootingDuration: 2
-  waypointReachThreshold: 0.5
-  fixedSeed: 0
-  useFixedSeed: 0
   WayPoints: []
+  ShootDuration: 1
+  CoolDown: 2
 --- !u!1001 &3903348583628482133
 PrefabInstance:
   m_ObjectHideFlags: 0

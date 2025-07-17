@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -333,15 +333,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 38651181477976079, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 38651181477976079, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 38651181477976079, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 317153976538719787, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_Color.b
@@ -362,6 +362,14 @@ PrefabInstance:
     - target: {fileID: 3118680108650326783, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149178690012219645, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
+      propertyPath: m_text
+      value: '2.His occipital lobe slice is preserved in the freezer; under the electron
+        microscope, the blue-purple synapses look like frozen fireworks.
+
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3149178690012219645, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_fontSize
@@ -409,11 +417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393319100915913701, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4393319100915913701, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4393319100915913701, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -429,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393319100915913701, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -363.45654
+      value: -363.4565
       objectReference: {fileID: 0}
     - target: {fileID: 6701278835552397009, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -449,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7099754785779122801, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7099754785779122801, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -458,6 +466,14 @@ PrefabInstance:
     - target: {fileID: 7099754785779122801, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.38476962
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482091874592881376, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
+      propertyPath: m_Size
+      value: 0.6152304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482091874592881376, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
+      propertyPath: m_Value
+      value: 0.9999996
       objectReference: {fileID: 0}
     - target: {fileID: 7693123896472077109, guid: 42633ba07d3f8bc40ba568cc30e609f6, type: 3}
       propertyPath: m_Pivot.x

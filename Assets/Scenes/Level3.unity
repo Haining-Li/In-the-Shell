@@ -181,6 +181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4877045867661582199, guid: d0e8ffa53837f844f8536283b9b39d82, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271466955195238417, guid: d0e8ffa53837f844f8536283b9b39d82, type: 3}
       propertyPath: m_Name
       value: ComputerCredit (1)
@@ -200,6 +204,12 @@ PrefabInstance:
 
         Music
 
+        Red Pills Club by 3D63
+
+        Shadow
+        Master (Original Mix) by Steve Bug
+
+        Destructor de Mundos by The YellowHeads
 
 
         Artworks

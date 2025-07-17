@@ -35,11 +35,13 @@ public class BossAI : HumanoidController
 
     void Update()
     {
+        if (!isActivated) return;
+
         if (mBossStatus.mHealthPoint <= 0 && !isRampageMode)
-         {         
+        {
             mStatus = Status.Idle;
             isChangingMode = true;
-         }
+        }
 
         if(mBossStatus.mHealthPoint <mBossStatus.mMaxHealthPoint && isChangingMode)
         {

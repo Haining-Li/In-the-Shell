@@ -60,6 +60,8 @@ public class PatrolAI : HumanoidController
     // Update is called once per frame
     void Update()
     {
+        if (!isActivated) return;
+
         Patrol();
         if (mSightHandler.isInSight || mCollideHandler.isGetHit)
         {

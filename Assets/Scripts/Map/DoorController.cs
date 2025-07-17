@@ -7,20 +7,20 @@ public class DoorController : MonoBehaviour
 {
     [Header("Door Sprites")]
     [Tooltip("Closed with red light (default state)")]
-    public Sprite closedRedState;    
+    public Sprite closedRedState;
     [Tooltip("Activating with green light")]
-    public Sprite activatingState;   
+    public Sprite activatingState;
     [Tooltip("Opening state 1")]
-    public Sprite openingState1;    
+    public Sprite openingState1;
     [Tooltip("Opening state 2")]
-    public Sprite openingState2;    
+    public Sprite openingState2;
     [Tooltip("Fully open state")]
     public Sprite openState;
 
     [Header("Animation Settings")]
     public float activationDelay = 0.5f;
     public float openingInterval = 0.3f;
-    
+
     [Header("Room Type")]
     [Tooltip("是否战斗房间的入口门")]
     public bool isCombatRoomDoor = false;
@@ -41,7 +41,7 @@ public class DoorController : MonoBehaviour
     private CombatTimer combatTimer; // 新增计时器引用
 
     public bool IsOpen { get { return isOpen; } }
-    
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -54,36 +54,36 @@ public class DoorController : MonoBehaviour
         // 获取场景中的计时器
         combatTimer = FindObjectOfType<CombatTimer>();
     }
-    
+
     public void ResetDoor()
     {
         spriteRenderer.sprite = closedRedState;
         isOpen = false;
     }
-    
+
     void Update()
     {
         bool inRange = GetComponentInChildren<Detect>().InRange;
-        if(inRange && Input.GetKeyDown(KeyCode.E) && !isOpen)
+        if (inRange && Input.GetKeyDown(KeyCode.E) && !isOpen)
         {
             StartCoroutine(OpenDoorSequence());
         }
     }
-    
+
     IEnumerator OpenDoorSequence()
     {
         // 切换到激活状态(绿灯)
         spriteRenderer.sprite = activatingState;
         yield return new WaitForSeconds(activationDelay);
-        
+
         // 开门动画第一部分
         spriteRenderer.sprite = openingState1;
         yield return new WaitForSeconds(openingInterval);
-        
+
         // 开门动画第二部分
         spriteRenderer.sprite = openingState2;
         yield return new WaitForSeconds(openingInterval);
-        
+
         // 完全打开状态
         spriteRenderer.sprite = openState;
         doorCollider.enabled = false;
@@ -103,9 +103,11 @@ public class DoorController : MonoBehaviour
         }
 
         // 新增：开始刷怪协程
-        StartCoroutine(SpawnEnemies());
+        // StartCoroutine(SpawnEnemies());
+        StartCoroutine(ActivateEnemies());
     }
 
+    /*
     IEnumerator SpawnEnemies()
     {
         // 等待指定的延迟时间
@@ -120,6 +122,27 @@ public class DoorController : MonoBehaviour
             if (enemyPrefabs[i] != null)
             {
                 Instantiate(enemyPrefabs[i], spawnPositions[i], Quaternion.identity);
+            }
+        }
+    }
+    */
+
+    [SerializeField] private GameObject[] Enemies = null;
+    IEnumerator ActivateEnemies()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+
+        int num = Enemies.Length;
+        for (int i = 0; i < num; i++)
+        {
+            if (Enemies[i] != null)
+            {
+                Enemies[i].SetActive(true);
+                HumanoidController[] bhs = Enemies[i].GetComponentsInChildren<HumanoidController>();
+                for (int j = 0; j < bhs.Length; j++)
+                {
+                    bhs[j].Activate();
+                }
             }
         }
     }

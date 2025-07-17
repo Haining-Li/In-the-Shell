@@ -29,15 +29,9 @@ public class WanderingAI : HumanoidController
         {
             case Status.Idle:
                 Idle();
-                if (mSightHandler.isInSight)
-                {
-                    mStatus = Status.Attack;
-                    mStatusTimer = Time.time;
-                }
                 break;
             case Status.Attack:
                 Attack();
-                
                 break;
 
         }
@@ -48,30 +42,59 @@ public class WanderingAI : HumanoidController
     Vector3 direction = Vector3.zero;
     void Idle()
     {
+        int move = Random.Range(0, 1);
         if (Time.time - mStatusTimer > 2f)
         {
-            int move = Random.Range(0, 1);
-            float moveX = Random.Range(0f, 1f);
-            float moveY = Random.Range(0f, 1f);
+            float moveX = Random.Range(-1f, 1f);
+            float moveY = Random.Range(-1f, 1f);
             direction = new Vector3(moveX, moveY);
-            direction = move * direction;
             mStatusTimer = Time.time;
         }
         else
         {
             mBehaviorHandler.mMoveDirection = direction;
         }
-    }
 
-    void Attack()
-    {
-        if (Time.time - mStatusTimer < 5f)
+        if (move == 1)
         {
-
+            mBehaviorHandler.Move();
         }
         else
         {
-            
+            mBehaviorHandler.Idle();
+        }
+    }
+
+    private float mWanderTime;
+    private Vector3 bias = Vector3.zero;
+    void Attack()
+    {
+        float radius = GetComponentInChildren<CircleCollider2D>().radius * transform.localScale.y;
+        if (mSightHandler.isInSight)
+        {
+            Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
+            mBehaviorHandler.mFacingDirection = relaPos;
+
+            float rate = relaPos.magnitude / radius;
+            rate = - rate;
+            mBehaviorHandler.mMoveDirection = rate * relaPos + bias;
+
+
+            if (Time.time - mWanderTime > 0.8f)
+            {
+                mWanderTime = Time.time;
+                float sign = Random.Range(-1f, 1f);
+                bias = Quaternion.Euler(0, 0, 90) * (sign * relaPos);
+            }
+
+            mBehaviorHandler.Move();
+            mBehaviorHandler.Shoot();
+        }
+        // Set Status
+        if (!mSightHandler.isInSight)
+        {
+            mStatus = Status.Idle;
+            mStatusTimer = Time.time;
         }
     }
 }

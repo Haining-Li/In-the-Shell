@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 706167692425032750}
   - component: {fileID: 4966220187727482389}
   - component: {fileID: 2794019871498045632}
-  - component: {fileID: 2061391605308804730}
+  - component: {fileID: 8631587964501205306}
   m_Layer: 31
   m_Name: Enemy3
   m_TagString: Enemy
@@ -417,6 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea6a4da3c0d4b348aaab0ef2a5b4593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCollidePos: {x: 0, y: 0, z: 0}
+  isGetHit: 0
 --- !u!114 &4966220187727482389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f16e77ab35af1c4e995e90495cc0029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2061391605308804730
+--- !u!114 &8631587964501205306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -453,9 +455,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8415045252499990532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5c1a77cbec4cd4cae44173461ce4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cb9e2a8fcde02f4e8e8cc7aba6b8e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mStatus: 0
 --- !u!1001 &131337003126512616
 PrefabInstance:
   m_ObjectHideFlags: 0

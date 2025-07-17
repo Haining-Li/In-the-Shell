@@ -83,7 +83,8 @@ public class MonoAI : HumanoidController
         }
         if (mCollideHandler.isGetHit)
         {
-            mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = mCollideHandler.GetCollide();
+            Vector3 relaPos = mCollideHandler.GetCollide() - transform.localPosition;
+            mBehaviorHandler.mMoveDirection = mBehaviorHandler.mFacingDirection = relaPos;
             mStatusTimer = Time.time;
         }
         else

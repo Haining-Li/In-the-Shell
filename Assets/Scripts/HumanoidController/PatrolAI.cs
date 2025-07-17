@@ -61,7 +61,7 @@ public class PatrolAI : HumanoidController
     void Update()
     {
         Patrol();
-        if (mSightHandler.isInSight)
+        if (mSightHandler.isInSight || mCollideHandler.isGetHit)
         {
             Attack();
         }
@@ -94,7 +94,16 @@ public class PatrolAI : HumanoidController
         {
             if (Time.time - mStatusTimer < ShootDuration)
             {
-                Vector3 relaPos = mSightHandler.mTargetPosition - transform.localPosition;
+                Vector3 relaPos = Vector3.zero;
+                if (mSightHandler.isInSight)
+                {
+                    relaPos = mSightHandler.mTargetPosition - transform.localPosition;
+                }
+                else if (!mSightHandler.isInSight && mCollideHandler.isGetHit)
+                {
+                    relaPos = mCollideHandler.GetCollide() - transform.localPosition;
+                }
+                
                 mBehaviorHandler.mFacingDirection = relaPos;
                 mBehaviorHandler.Shoot();
             }

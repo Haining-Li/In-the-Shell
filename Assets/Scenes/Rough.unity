@@ -4428,6 +4428,14 @@ PrefabInstance:
       propertyPath: isStoryRoomDoor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 817255574}
     - target: {fileID: 7380484053859202346, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
       propertyPath: m_Name
       value: UP-AutoDoor (1)
@@ -5133,6 +5141,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3baee6ea4bcc9444bc956a77e1aa015, type: 3}
+--- !u!1 &817255574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4250378359336502022, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
+  m_PrefabInstance: {fileID: 1293025004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &876745755
 GameObject:
   m_ObjectHideFlags: 0
@@ -8908,6 +8921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 73796859298856883, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2401783133850958304, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: bloodPackagePrefab
       value: 
@@ -8915,6 +8932,10 @@ PrefabInstance:
     - target: {fileID: 4250378359336502022, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: m_Name
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250378359336502022, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7430268162514026384, guid: a226c7f263fe54a4088ddc1fd18ba8d8, type: 3}
       propertyPath: patrolRange
@@ -11070,6 +11091,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3993654375232954794, guid: 92e95f8cad96976408f7958a23e1e5a7, type: 3}
   m_PrefabInstance: {fileID: 888255765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1796571859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4729700831421871409, guid: d3566df6d9716754fbff495dbfbf5167, type: 3}
+  m_PrefabInstance: {fileID: 1809327846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1809327846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11081,6 +11107,10 @@ PrefabInstance:
     - target: {fileID: 4729700831421871409, guid: d3566df6d9716754fbff495dbfbf5167, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729700831421871409, guid: d3566df6d9716754fbff495dbfbf5167, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428181660434266988, guid: d3566df6d9716754fbff495dbfbf5167, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13837,6 +13867,14 @@ PrefabInstance:
       propertyPath: isCombatRoomDoor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879092088376018314, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
+      propertyPath: Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1796571859}
     - target: {fileID: 7380484053859202346, guid: 44347d42800d1ff4d960a21e5fdd3cff, type: 3}
       propertyPath: m_Name
       value: UP-AutoDoor

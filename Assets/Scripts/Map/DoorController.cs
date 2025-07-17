@@ -137,7 +137,12 @@ public class DoorController : MonoBehaviour
         {
             if (Enemies[i] != null)
             {
-                Enemies[i].GetComponent<HumanoidBehavior>().Activate();
+                Enemies[i].SetActive(true);
+                HumanoidController[] bhs = Enemies[i].GetComponentsInChildren<HumanoidController>();
+                for (int j = 0; j < bhs.Length; j++)
+                {
+                    bhs[j].Activate();
+                }
             }
         }
     }

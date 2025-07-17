@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     public GameObject mProjectile = null;
     public float mShootRate;
     public float mShootCoolDown;
+    public int mSpeed;
     protected float mShootTimer;
     protected float mCoolDownTimer;
     protected Transform parentObject;
@@ -33,5 +34,6 @@ public class Weapon : MonoBehaviour
         int damage = e.GetComponent<ProjectileBehavior>().mDamage;
         damage = (int)(mDamageTimes * damage);
         e.GetComponent<ProjectileBehavior>().mDamage = damage;
+        e.GetComponent<ProjectileBehavior>().mSpeed = mSpeed;    
     }
 }

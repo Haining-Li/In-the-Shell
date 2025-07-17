@@ -297,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624bfcb769b18164797b8762da20e354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMaxHealthPoint: 100
-  mHP: 100
+  mMaxHealthPoint: 150
+  mHP: 150
   bloodPackagePrefab: {fileID: 3390831054762447549, guid: f8c9db663e16db64b8273de979667097, type: 3}
 --- !u!114 &4108199035499397466
 MonoBehaviour:

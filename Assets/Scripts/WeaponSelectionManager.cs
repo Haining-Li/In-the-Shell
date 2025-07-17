@@ -7,6 +7,7 @@ public class WeaponSelectionManager : MonoBehaviour
     public Button[] weaponButtons;
     public Button[] ammoButtons;
     public Button confirmButton;
+    public GameObject selectionPanel;
 
     [Header("Default Selections")]
     public int defaultWeaponIndex = 0;
@@ -27,7 +28,7 @@ public class WeaponSelectionManager : MonoBehaviour
         // Initialize default selections
         selectedWeaponIndex = defaultWeaponIndex;
         selectedAmmoIndex = defaultAmmoIndex;
-        
+
         // Set up weapon buttons
         for (int i = 0; i < weaponButtons.Length; i++)
         {
@@ -48,8 +49,36 @@ public class WeaponSelectionManager : MonoBehaviour
         // Highlight default selections
         UpdateButtonVisuals();
         isInitialized = true;
+        // 初始隐藏选择界面
+        if (selectionPanel != null)
+        {
+            selectionPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Selection Panel is not assigned in the inspector!");
+        }
     }
 
+    // 打开选择界面并暂停游戏
+    public void OpenSelectionPanel()
+    {
+        if (selectionPanel != null)
+        {
+            selectionPanel.SetActive(true);
+            Time.timeScale = 0f; // 暂停游戏
+        }
+    }
+
+    // 关闭选择界面并恢复游戏
+    public void CloseSelectionPanel()
+    {
+        if (selectionPanel != null)
+        {
+            selectionPanel.SetActive(false);
+            Time.timeScale = 1f; // 恢复游戏
+        }
+    }
     private void SelectWeapon(int index)
     {
         selectedWeaponIndex = index + 1; // +1 because 0 is "not selected"
@@ -91,7 +120,7 @@ public class WeaponSelectionManager : MonoBehaviour
 
         // Generate and equip the new weapon
         GameObject newWeapon = weaponGenerator.GunGenerator();
-        
+
         // Find and destroy the old weapon if exists
         Weapon oldWeapon = hero.GetComponentInChildren<Weapon>();
         if (oldWeapon != null)
@@ -103,8 +132,9 @@ public class WeaponSelectionManager : MonoBehaviour
         newWeapon.transform.SetParent(hero.transform);
         newWeapon.transform.localPosition = new Vector3(0.05f, 0.15f, 0);
         newWeapon.transform.localRotation = Quaternion.identity;
-        
+
         // Update hero's weapon reference
         hero.mWeaponHandler = newWeapon.GetComponent<Weapon>();
+        CloseSelectionPanel();
     }
 }

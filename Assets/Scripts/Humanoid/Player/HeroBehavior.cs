@@ -157,11 +157,9 @@ public class HeroBehavior : HumanoidBehavior
         mAnimator.SetTrigger("Shoot");
         if (Time.unscaledTime - mShootTimer > mShootRate)
         {
-            // audioController.PlaySfx(audioController.HeroShoot);
-            // base.Shoot();
             mShootTimer = Time.unscaledTime;
         }
-        Debug.Log(mWeaponHandler.name);
+
         mWeaponHandler.mFirePoint = mFirePoint;
         mWeaponHandler.mTowards = mTowards;
         mWeaponHandler.Shoot();
